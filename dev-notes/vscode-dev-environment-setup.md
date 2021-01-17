@@ -14,20 +14,23 @@
     - [0-6 Install Windows Terminal](#0-6-install-windows-terminal)
     - [0-7 Change the Default Profile](#0-7-change-the-default-profile)
   - [Step 1 - Add Brogrammer Color Theme](#step-1---add-brogrammer-color-theme)
-    - [Instructions for Windows Terminal](#instructions-for-windows-terminal)
-    - [Instructions for Mac Terminal](#instructions-for-mac-terminal)
+    - [Step 1a - Instructions for Windows Terminal](#step-1a---instructions-for-windows-terminal)
+    - [Step 1b - Instructions for Mac Terminal](#step-1b---instructions-for-mac-terminal)
   - [Step 2 - Install Oh My Zsh](#step-2---install-oh-my-zsh)
-    - [Instructions for Windows Terminal](#instructions-for-windows-terminal-1)
-    - [Instructions for Mac Terminal](#instructions-for-mac-terminal-1)
+    - [Step 2a - Instructions for Windows Terminal](#step-2a---instructions-for-windows-terminal)
+    - [Step 2b - Instructions for Mac Terminal](#step-2b---instructions-for-mac-terminal)
   - [Step 3 - Install Powerlevel10k Plugin](#step-3---install-powerlevel10k-plugin)
   - [Step 4 - Use ZSH Terminal in VS Code](#step-4---use-zsh-terminal-in-vs-code)
 
 # Setup VS Code
+
 ## VS Code Settings
+
 ```json
 {
     "workbench.startupEditor": "newUntitledFile",
     "editor.fontSize": 13,
+    "editor.quickSuggestionsDelay": 500,
     "editor.tabSize": 2,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
@@ -127,13 +130,12 @@
         "fetch:command",
         "switch:command"
     ],
-    "editor.minimap.enabled": false,
     "aws.profile": "profile:default",
-    "editor.quickSuggestionsDelay": 500,
 }
 ```
 
 ## VS Code Extensions
+
 - Auto Close Tag
 - AWS Toolkit
 - ESLint
@@ -142,19 +144,20 @@
 - GitLens
 - Live Share
 - Markdown All in One
+- markdownlint
 - open in browser
 - Remote - WSL
 - TODO Highlight
 - YAML
 
-
 # Setup Terminal
 
 ## Step 0 - Setup WSL & Windows Terminal
+
 > NOTE: If you're not on Windows continue to Step 1
-
+>
 >For more information about WSL visit [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-
+>
 > For more information about Windows Terminal Visit [What is Windows Terminal?](https://docs.microsoft.com/en-us/windows/terminal/)
 
 ### 0-1 Install WSL 1
@@ -177,7 +180,7 @@ Restart your machine to complete the WSL install and update to WSL 2.
 
 ### 0-3. Download the Linux Kernel Update Package
 
-Download and run the following package: https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+Download and run the following package: <https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi>
 
 ### 0-4. Set WSL 2 as Your Default Version
 
@@ -205,7 +208,8 @@ Open Windows Terminal. Click on the down caret at the top and select settings. T
 
 ## Step 1 - Add Brogrammer Color Theme
 
-### Instructions for Windows Terminal
+### Step 1a - Instructions for Windows Terminal
+
 > Example `settings.json` file for Windows Terminal can be found at [./windows-terminal-settings.json](./windows-terminal-settings.json)
 
 Open Windows Terminal. Click on the down caret at the top and select settings. This will open a `settings.json` file. In that file look for the `Profiles.list` array and find the profile object associated with the Linux distribution you downloaded. Add the following propertys and value to the object:
@@ -227,6 +231,7 @@ The profile be similiar to the following example:
     "colorScheme" : "Brogrammer"
 },
 ```
+
 While still in the `settings.json` file find the `schemes` array and add the following object:
 
 ```json
@@ -258,52 +263,54 @@ While still in the `settings.json` file find the `schemes` array and add the fol
 }
 ```
 
-### Instructions for Mac Terminal
+### Step 1b - Instructions for Mac Terminal
 
 Go to *Apple Terminal → Preferences → Profiles → Gear Icon → Import*. Import the file located at [./brogrammer.terminal](./brogrammer.terminal)
 
 Then update the `selection` color for the profile to `#45A2D2`
 
 ## Step 2 - Install Oh My Zsh
-> NOTE: Go to https://ohmyz.sh for more information on Oh My Zsh
 
-### Instructions for Windows Terminal
+> NOTE: Go to <https://ohmyz.sh> for more information on Oh My Zsh
+
+### Step 2a - Instructions for Windows Terminal
 
 In the Windows Terminal Linux shell enter the following commands:
 
 ```console
-$ sudo apt-get update
-$ sudo apt-get upgrade
-$ sudo apt-get install vim curl git zsh
-$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install vim curl git zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. Two such aliases may include the following; which should be added to the  `~/.zshrc` file:
 
-```
+```txt
 # Navigation Aliases
 alias winhome="cd /mnt/c/Users/Samuel"
 alias softproj="cd /mnt/c/Users/Samuel/Documents/My\ Documents/Software\ Projects"
 ```
 
-### Instructions for Mac Terminal
+### Step 2b - Instructions for Mac Terminal
 
 In the Mac Terminal enter the following command:
 
 ```console
-$ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 ## Step 3 - Install Powerlevel10k Plugin
 
-Follow the guide at https://github.com/romkatv/powerlevel10k
+Follow the guide at <https://github.com/romkatv/powerlevel10k>
 
 >NOTE: Read instructions in the above guide all the way through for each step. It is easy to skip the updating of the terminal's profile font, and setting ZSH_THEME="powerlevel10k/powerlevel10k" in `~/.zshrc`.
-
->NOTE: For Windows Terminal add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face
+>
+>NOTE: For Windows Terminal add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at <https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face>
 
 When running the Powerlevel10k config use the following styles:
-```
+
+```txt
 Prompt Style = Rainbow
 Character Set = Unicode
 Show Current Time = 12-hour format
@@ -322,7 +329,8 @@ Instant Prompt Mode = Verbose
 ```
 
 ## Step 4 - Use ZSH Terminal in VS Code
->NOTE: This applies only for Windows
+
+>NOTE: This applies only for Windows 10
 
 The `Remote - WSL` extension for vscode that allows VS Code’s UI to run on Windows, while all the commands, extensions, and even the terminal, run on Linux. For more information for how to use `Remote - WSL` read the extensions documentation.
 
