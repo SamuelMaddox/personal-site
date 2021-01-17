@@ -21,8 +21,6 @@
     - [Instructions for Mac Terminal](#instructions-for-mac-terminal-1)
   - [Step 3 - Install Powerlevel10k Plugin](#step-3---install-powerlevel10k-plugin)
   - [Step 4 - Use ZSH Terminal in VS Code](#step-4---use-zsh-terminal-in-vs-code)
-    - [Setup for Windows](#setup-for-windows)
-    - [Setup for Mac](#setup-for-mac)
 
 # Setup VS Code
 ## VS Code Settings
@@ -140,10 +138,12 @@
 - AWS Toolkit
 - ESLint
 - Git Graph
+- GitHub Pull Requests and Issues
 - GitLens
 - Live Share
 - Markdown All in One
 - open in browser
+- Remote - WSL
 - TODO Highlight
 - YAML
 
@@ -278,6 +278,14 @@ $ sudo apt-get install vim curl git zsh
 $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
+For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. Two such aliases may include the following; which should be added to the  `~/.zshrc` file:
+
+```
+# Navigation Aliases
+alias winhome="cd /mnt/c/Users/Samuel"
+alias softproj="cd /mnt/c/Users/Samuel/Documents/My\ Documents/Software\ Projects"
+```
+
 ### Instructions for Mac Terminal
 
 In the Mac Terminal enter the following command:
@@ -290,7 +298,7 @@ $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/instal
 
 Follow the guide at https://github.com/romkatv/powerlevel10k
 
->NOTE: Read instructions in the above guide all the way through for each step. It is easy to skip the updating of the terminal's profile font, and setting ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc.
+>NOTE: Read instructions in the above guide all the way through for each step. It is easy to skip the updating of the terminal's profile font, and setting ZSH_THEME="powerlevel10k/powerlevel10k" in `~/.zshrc`.
 
 >NOTE: For Windows Terminal add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face
 
@@ -314,14 +322,8 @@ Instant Prompt Mode = Verbose
 ```
 
 ## Step 4 - Use ZSH Terminal in VS Code
+>NOTE: This applies only for Windows
 
-### Setup for Windows
+The `Remote - WSL` extension for vscode that allows VS Code’s UI to run on Windows, while all the commands, extensions, and even the terminal, run on Linux. For more information for how to use `Remote - WSL` read the extensions documentation.
 
-### Setup for Mac
-
-
-
-
-
-
-vscode use wsl zsh (look into remote-wsl and add extension to the list found in this readme)
+>NOTE: All VS Code extensions will have to be installed for WSL. This is very easy to do. Assuming the `Remote - WSL` is installed and you're running VS Code in WSL mode then simply visit the Extensions tab on the left and click the install buttons.
