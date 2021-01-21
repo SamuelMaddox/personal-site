@@ -284,12 +284,11 @@ sudo apt-get install vim curl git zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. Two such aliases may include the following; which should be added to the  `~/.zshrc` file:
+For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. One such alias may be similiar to the following; which should be added to the  `~/.zshrc` file:
 
 ```txt
 # Navigation Aliases
 alias winhome="cd /mnt/c/Users/Samuel"
-alias softproj="cd /mnt/c/Users/Samuel/Documents/My\ Documents/Software\ Projects"
 ```
 
 ### Step 2b - Instructions for Mac Terminal
