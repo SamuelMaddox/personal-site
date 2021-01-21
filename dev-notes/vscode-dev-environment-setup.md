@@ -305,7 +305,7 @@ Follow the guide at <https://github.com/romkatv/powerlevel10k>
 
 >NOTE: Read instructions in the above guide all the way through for each step. It is easy to skip the updating of the terminal's profile font, and setting ZSH_THEME="powerlevel10k/powerlevel10k" in `~/.zshrc`.
 >
->NOTE: For Windows Terminal add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at <https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face>
+>NOTE: For Windows Terminal go to settings and add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at <https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face>
 
 When running the Powerlevel10k config use the following styles:
 
