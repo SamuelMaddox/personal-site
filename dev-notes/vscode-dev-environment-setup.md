@@ -42,8 +42,14 @@
     "files.eol": "\n",
     "diffEditor.renderSideBySide": true,
     "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
     "terminal.integrated.fontFamily": "MesloLGS NF",
     "window.zoomLevel": 0,
+    "gitlens.gitCommands.closeOnFocusOut": true,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "switch:command"
+    ],
     "gitlens.menus": {
         "editor": {
             "blame": false,
@@ -125,11 +131,6 @@
         "!Join mapping",
         "!Join sequence"
     ],
-    "gitlens.gitCommands.closeOnFocusOut": true,
-    "gitlens.gitCommands.skipConfirmations": [
-        "fetch:command",
-        "switch:command"
-    ],
     "aws.profile": "profile:default",
 }
 ```
@@ -145,6 +146,7 @@
 - Live Share
 - Markdown All in One
 - markdownlint
+- npm
 - open in browser
 - Remote - WSL
 - TODO Highlight
