@@ -7,10 +7,10 @@
 - [Setup Terminal](#setup-terminal)
   - [Step 0 - Setup WSL & Windows Terminal](#step-0---setup-wsl--windows-terminal)
     - [0-1 Install WSL 1](#0-1-install-wsl-1)
-    - [0-2. Upgrade to WSL 2](#0-2-upgrade-to-wsl-2)
-    - [0-3. Download the Linux Kernel Update Package](#0-3-download-the-linux-kernel-update-package)
-    - [0-4. Set WSL 2 as Your Default Version](#0-4-set-wsl-2-as-your-default-version)
-    - [0-5. Install Your Linux Distribution of Choice](#0-5-install-your-linux-distribution-of-choice)
+    - [0-2 Upgrade to WSL 2](#0-2-upgrade-to-wsl-2)
+    - [0-3 Download the Linux Kernel Update Package](#0-3-download-the-linux-kernel-update-package)
+    - [0-4 Set WSL 2 as Your Default Version](#0-4-set-wsl-2-as-your-default-version)
+    - [0-5 Install Your Linux Distribution of Choice](#0-5-install-your-linux-distribution-of-choice)
     - [0-6 Install Windows Terminal](#0-6-install-windows-terminal)
     - [0-7 Change the Default Profile](#0-7-change-the-default-profile)
   - [Step 1 - Add Brogrammer Color Theme](#step-1---add-brogrammer-color-theme)
@@ -170,7 +170,7 @@ Open PowerShell as Administrator and run:
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 ```
 
-### 0-2. Upgrade to WSL 2
+### 0-2 Upgrade to WSL 2
 
 Before installing WSL 2, you must enable the Virtual Machine Platform optional feature.
 
@@ -180,11 +180,11 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 
 Restart your machine to complete the WSL install and update to WSL 2.
 
-### 0-3. Download the Linux Kernel Update Package
+### 0-3 Download the Linux Kernel Update Package
 
 Download and run the following package: <https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi>
 
-### 0-4. Set WSL 2 as Your Default Version
+### 0-4 Set WSL 2 as Your Default Version
 
 Open PowerShell and run this command to set WSL 2 as the default version when installing a new Linux distribution
 
@@ -192,7 +192,7 @@ Open PowerShell and run this command to set WSL 2 as the default version when in
 wsl --set-default-version 2
 ```
 
-### 0-5. Install Your Linux Distribution of Choice
+### 0-5 Install Your Linux Distribution of Choice
 
 Open the Microsoft Store and select your favorite Linux distribution (I prefer [Debian](https://www.microsoft.com/en-us/p/debian/9msvkqc78pk6?rtc=1&activetab=pivot:overviewtab)). Once the distribution is installed open it up. You'll be asked to wait for a minute or two for files to de-compress and be stored on your PC. All future launches should take less than a second. You will then need to create a user account and password for your new Linux distribution.
 
