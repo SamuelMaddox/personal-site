@@ -4,26 +4,70 @@
 - [Step 1 - Create React App Using Yarn](#step-1---create-react-app-using-yarn)
 - [Step 2 - Clean Up Extra Code & Files](#step-2---clean-up-extra-code--files)
 - [Step 3 - Add launch.json](#step-3---add-launchjson)
-- [Step 4 - Setup ESLint](#step-4---setup-eslint)
+- [Step 4 - Setup ESLint & Prettier](#step-4---setup-eslint--prettier)
   - [Step 4-1 - Remove Default Config](#step-4-1---remove-default-config)
   - [Step 4-2 - Install ESLint Packages](#step-4-2---install-eslint-packages)
-  - [Step 4-2 - Install Prettier](#step-4-2---install-prettier)
+  - [Step 4-2 - Install Prettier Packages](#step-4-2---install-prettier-packages)
   - [Step 4-3 - Configure ESLint](#step-4-3---configure-eslint)
-  - [Step 4-X](#step-4-x)
-- [Step 5 Automatically Format](#step-5-automatically-format)
+  - [Step 4-4 - Add Linting & Prettier Scripts](#step-4-4---add-linting--prettier-scripts)
+- [Step 5 - Setup Pre-Commit Hooks](#step-5---setup-pre-commit-hooks)
+  - [Step 5-1 - Install and Setup Husky](#step-5-1---install-and-setup-husky)
+  - [Step 5-2 - Install and Setup Lint Staged](#step-5-2---install-and-setup-lint-staged)
+  - [Step 5-3 - Setup Pre-Commit Hooks](#step-5-3---setup-pre-commit-hooks)
 - [Step X - Add Remote Repository](#step-x---add-remote-repository)
 - [Step X - Update Readme](#step-x---update-readme)
 - [Step X - Update manifest.json](#step-x---update-manifestjson)
 
 ## Step 0 - Install Yarn
 
-[https://classic.yarnpkg.com/en/docs/install](https://classic.yarnpkg.com/en/docs/install)
+Install or update the most recent version of yarn v1 globally. Note: Installation of yarn 2 will happen locally after running the create react app. Reference the following yarn install guide for updates to the process. (At the time this guide was created Create React App was not compatible with yarn v2's Zero-Installs feature.)
+
+[https://yarnpkg.com/getting-started/install](https://yarnpkg.com/getting-started/install)
+
+Run the following command to install / update yarn globally.
+
+```shell
+npm install -g yarn
+```
 
 ## Step 1 - Create React App Using Yarn
 
-In the instructions below create a new React app using yarn. 
+Use the instructions below to create a new React app using yarn.
 
 [https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
+
+Then install yarn 2 locally by running the following commands (at the time this guide was created, Create React App was not compatible with yarn v2's Zero-Installs feature.):
+
+```shell
+rm -rf node_modules
+yarn set version berry
+```
+
+Update the `.gitignore` to include files that should be ignored when not using the Zero-Installs feature of yarn v2
+
+```txt
+# yarn
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+```
+
+Update .yarnrc.yml with to contain the following:
+
+```yml
+yarnPath: ".yarn/releases/yarn-berry.cjs"
+nodeLinker: "node-modules"
+```
+
+Reinstall node_modules
+
+```shell
+yarn install
+```
 
 ## Step 2 - Clean Up Extra Code & Files
 
@@ -34,22 +78,24 @@ In the instructions below create a new React app using yarn.
 - In `/src/App.js`
   - Rename file to `app.jsx`.
   - Remove jsx in the return statement and replace with `<></>`.
-  - Remove `import logo from './logo.svg';`.
+  - Remove `import logo from "./logo.svg";`.
   - Rename import from `./App.css` to `./app.css`.
-  - Add `import React from 'react';`.
+  - Add `import React from "react";`.
 - In `/src/App.test.js`
   - Rename file to `app.test.jsx`
   - Remove the test function
   - Rename import from `./App` to `./app`.
-  - Add `import React from 'react';`.
+  - Add `import React from "react";`.
 - In `/src/index.css` remove all styles.
-- In `/src/index.js` 
+- In `/src/index.js`
   - Rename file to `index.jsx`
   - Remove code/comments related to `reportWebVitals();`.
-  - Update `import App from '/App';` to `/app`.
-  - 
+  - Update `import App from "/App";` to `/app`.
 - Delete `/src/logo.svg` and `/src/reportWebVitals.js`.
-- In `/package.json` remove the `"web-vitals": "^1.0.1"` package and run `yarn install`
+- In `/package.json`
+  - Remove the `"web-vitals": "^1.0.1"` package
+  - Add `"test:nowatch": "react-scripts test --watchAll=false",` under the `"scripts"` section
+  - Run `yarn install`
 
 ## Step 3 - Add launch.json
 
@@ -75,7 +121,7 @@ Create a `/launch.json` file and add the following to it
 }
 ```
 
-## Step 4 - Setup ESLint
+## Step 4 - Setup ESLint & Prettier
 
 ### Step 4-1 - Remove Default Config
 
@@ -147,7 +193,7 @@ Then run the following command for each peer dependency (I tend to install the l
 yarn add <dependency>@<version>
 ```
 
-### Step 4-2 - Install Prettier
+### Step 4-2 - Install Prettier Packages
 
 Run the following command to install prettier
 
@@ -176,19 +222,89 @@ In the `/eslintrc.json` file replace the `"extends"` section with the following 
 ],
 ```
 
-### Step 4-X
-add lint scripts to package.json. then run `yarn lint` and `yarn lintfix`
-add prettier scripts to package.json. 
-## Step 5 Automatically Format
+### Step 4-4 - Add Linting & Prettier Scripts
 
-install hsuky, lint-staged, and prettier [https://create-react-app.dev/docs/setting-up-your-editor/#formatting-code-automatically](https://create-react-app.dev/docs/setting-up-your-editor/#formatting-code-automatically)
+Add the following scripts to the `/package.json` under the `"scripts"` section.
+
+```json
+"scripts": {
+  ...
+  "lint": "eslint src/*",
+  "lint:fix": "eslint src/* --fix",
+  "lint:check": "eslint src/* --max-warnings 0",
+  "prettier": "prettier --write src",
+  "prettier:check": "prettier --check src"
+}
+```
+
+## Step 5 - Setup Pre-Commit Hooks
+
+### Step 5-1 - Install and Setup Husky
+
+Install `husky` to use githooks as if they are npm scripts (instructions below came from [https://typicode.github.io/husky/#/?id=yarn-2](https://typicode.github.io/husky/#/?id=yarn-2)).
+
+Install `husky` and enable git hooks.
+
+```shell
+yarn add husky
+yarn husky install
+```
+
+To automatically have Git hooks enabled after install, edit the sripts section the the  `/package.json` to include the following:
+
+```json
+"scripts": {
+  ...
+  "postinstall": "husky install"
+}
+```
+
+### Step 5-2 - Install and Setup Lint Staged
+
+Install `lint-staged` to run linter and prettier only on staged files.
+
+```shell
+yarn add lint-staged
+```
+
+```json
+"lint-staged": {
+  "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "yarn lint:check",
+    "yarn prettier"
+  ]
+},
+```
+
+### Step 5-3 - Setup Pre-Commit Hooks
+
+Run the following commands to setup git pre-commit hooks
+
+```
+yarn husky add .husky/pre-commit "yarn lint-staged"
+yarn husky add .husky/pre-commit "yarn test:nowatch"
+```
 
 ## Step X - Add Remote Repository
+
+Run the following commands to add remote repository (replacing `<username>` and `<repo_name>`):
+
+```shell
+git remote add origin git@github.com:<username>/<repo_name>.git
+git branch -M master
+git push -u origin master
+```
 
 ## Step X - Update Readme
 
 add notes about lint scripts, pre commit hooks, ci pipeline including checks for github
+
+you can bypase `pre-commit`  hooks useing git `--no-verify` option. Ex:
+
+```shell
+`git commit -m "yolo" --no-verify`
+```
+
 ## Step X - Update manifest.json
 
 Replace values in `./public/manifest.json` `./public/index.html` to reflect the app we're building. Also replace the logos & favicon images found in `./public`
-  

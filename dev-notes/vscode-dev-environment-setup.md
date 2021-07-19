@@ -1,4 +1,3 @@
-
 # Local Dev Environment Setup <!-- omit in toc -->
 
 - [Setup VS Code](#setup-vs-code)
@@ -28,110 +27,107 @@
 
 ```json
 {
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.fontSize": 13,
-    "editor.quickSuggestionsDelay": 500,
-    "editor.tabSize": 2,
-    "editor.renderWhitespace": "boundary",
-    "editor.rulers": [
-        100
-    ],
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "files.eol": "\n",
-    "diffEditor.renderSideBySide": true,
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
-    "terminal.integrated.fontFamily": "MesloLGS NF",
-    "window.zoomLevel": 0,
-    "gitlens.gitCommands.closeOnFocusOut": true,
-    "gitlens.gitCommands.skipConfirmations": [
-        "fetch:command",
-        "switch:command"
-    ],
-    "gitlens.menus": {
-        "editor": {
-            "blame": false,
-            "clipboard": true,
-            "compare": true,
-            "details": false,
-            "history": false,
-            "remote": false
-        },
-        "editorGroup": false,
-        "editorTab": false,
-        "explorer": {
-            "clipboard": true,
-            "compare": true,
-            "history": true,
-            "remote": true
-        },
-        "scmGroup": {
-            "compare": true,
-            "openClose": true,
-            "stash": true,
-            "stashInline": true
-        },
-        "scmItem": {
-            "clipboard": true,
-            "compare": true,
-            "history": true,
-            "remote": true,
-            "stash": true
-        }
+  "workbench.startupEditor": "newUntitledFile",
+  "editor.fontSize": 13,
+  "editor.quickSuggestionsDelay": 500,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "boundary",
+  "editor.rulers": [80, 100],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.eol": "\n",
+  "diffEditor.renderSideBySide": true,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "window.zoomLevel": 0,
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  "gitlens.gitCommands.skipConfirmations": ["fetch:command", "switch:command"],
+  "gitlens.menus": {
+    "editor": {
+      "blame": false,
+      "clipboard": true,
+      "compare": true,
+      "details": false,
+      "history": false,
+      "remote": false
     },
-    "yaml.customTags": [
-        "!And scalar",
-        "!And mapping",
-        "!And sequence",
-        "!If scalar",
-        "!If mapping",
-        "!If sequence",
-        "!Not scalar",
-        "!Not mapping",
-        "!Not sequence",
-        "!Equals scalar",
-        "!Equals mapping",
-        "!Equals sequence",
-        "!Or scalar",
-        "!Or mapping",
-        "!Or sequence",
-        "!FindInMap scalar",
-        "!FindInMap mappping",
-        "!FindInMap sequence",
-        "!Base64 scalar",
-        "!Base64 mapping",
-        "!Base64 sequence",
-        "!Cidr scalar",
-        "!Cidr mapping",
-        "!Cidr sequence",
-        "!Ref scalar",
-        "!Ref mapping",
-        "!Ref sequence",
-        "!Sub scalar",
-        "!Sub mapping",
-        "!Sub sequence",
-        "!GetAtt scalar",
-        "!GetAtt mapping",
-        "!GetAtt sequence",
-        "!GetAZs scalar",
-        "!GetAZs mapping",
-        "!GetAZs sequence",
-        "!ImportValue scalar",
-        "!ImportValue mapping",
-        "!ImportValue sequence",
-        "!Select scalar",
-        "!Select mapping",
-        "!Select sequence",
-        "!Split scalar",
-        "!Split mapping",
-        "!Split sequence",
-        "!Join scalar",
-        "!Join mapping",
-        "!Join sequence"
-    ],
-    "aws.profile": "profile:default",
+    "editorGroup": false,
+    "editorTab": false,
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "scmGroup": {
+      "compare": true,
+      "openClose": true,
+      "stash": true,
+      "stashInline": true
+    },
+    "scmItem": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true,
+      "stash": true
+    }
+  },
+  "yaml.customTags": [
+    "!And scalar",
+    "!And mapping",
+    "!And sequence",
+    "!If scalar",
+    "!If mapping",
+    "!If sequence",
+    "!Not scalar",
+    "!Not mapping",
+    "!Not sequence",
+    "!Equals scalar",
+    "!Equals mapping",
+    "!Equals sequence",
+    "!Or scalar",
+    "!Or mapping",
+    "!Or sequence",
+    "!FindInMap scalar",
+    "!FindInMap mappping",
+    "!FindInMap sequence",
+    "!Base64 scalar",
+    "!Base64 mapping",
+    "!Base64 sequence",
+    "!Cidr scalar",
+    "!Cidr mapping",
+    "!Cidr sequence",
+    "!Ref scalar",
+    "!Ref mapping",
+    "!Ref sequence",
+    "!Sub scalar",
+    "!Sub mapping",
+    "!Sub sequence",
+    "!GetAtt scalar",
+    "!GetAtt mapping",
+    "!GetAtt sequence",
+    "!GetAZs scalar",
+    "!GetAZs mapping",
+    "!GetAZs sequence",
+    "!ImportValue scalar",
+    "!ImportValue mapping",
+    "!ImportValue sequence",
+    "!Select scalar",
+    "!Select mapping",
+    "!Select sequence",
+    "!Split scalar",
+    "!Split mapping",
+    "!Split sequence",
+    "!Join scalar",
+    "!Join mapping",
+    "!Join sequence"
+  ],
+  "aws.profile": "profile:default"
 }
 ```
 
@@ -148,6 +144,7 @@
 - markdownlint
 - npm
 - open in browser
+- Prettier
 - Remote - WSL
 - TODO Highlight
 - YAML
@@ -158,7 +155,7 @@
 
 > NOTE: If you're not on Windows continue to Step 1
 >
->For more information about WSL visit [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+> For more information about WSL visit [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 >
 > For more information about Windows Terminal Visit [What is Windows Terminal?](https://docs.microsoft.com/en-us/windows/terminal/)
 
@@ -238,36 +235,36 @@ While still in the `settings.json` file find the `schemes` array and add the fol
 
 ```json
 {
-    "name" : "Brogrammer",
+  "name": "Brogrammer",
 
-    "cursorColor": "#B9B9B9",
-    "selectionBackground": "#45A2D2",
+  "cursorColor": "#B9B9B9",
+  "selectionBackground": "#45A2D2",
 
-    "background" : "#131313",
-    "foreground" : "#D6DBE5",
+  "background": "#131313",
+  "foreground": "#D6DBE5",
 
-    "black" : "#1F1F1F",
-    "blue" : "#2A84D2",
-    "cyan" : "#1081D6",
-    "green" : "#2DC55E",
-    "purple" : "#4E5AB7",
-    "red" : "#F81118",
-    "white" : "#D6DBE5",
-    "yellow" : "#ECBA0F",
-    "brightBlack" : "#D6DBE5",
-    "brightBlue" : "#1081D6",
-    "brightCyan" : "#0F7DDB",
-    "brightGreen" : "#1DD361",
-    "brightPurple" : "#5350B9",
-    "brightRed" : "#DE352E",
-    "brightWhite" : "#FFFFFF",
-    "brightYellow" : "#F3BD09"
+  "black": "#1F1F1F",
+  "blue": "#2A84D2",
+  "cyan": "#1081D6",
+  "green": "#2DC55E",
+  "purple": "#4E5AB7",
+  "red": "#F81118",
+  "white": "#D6DBE5",
+  "yellow": "#ECBA0F",
+  "brightBlack": "#D6DBE5",
+  "brightBlue": "#1081D6",
+  "brightCyan": "#0F7DDB",
+  "brightGreen": "#1DD361",
+  "brightPurple": "#5350B9",
+  "brightRed": "#DE352E",
+  "brightWhite": "#FFFFFF",
+  "brightYellow": "#F3BD09"
 }
 ```
 
 ### Step 1b - Instructions for Mac Terminal
 
-Go to *Apple Terminal → Preferences → Profiles → Gear Icon → Import*. Import the file located at [./brogrammer.terminal](./brogrammer.terminal)
+Go to _Apple Terminal → Preferences → Profiles → Gear Icon → Import_. Import the file located at [./brogrammer.terminal](./brogrammer.terminal)
 
 Then update the `selection` color for the profile to `#45A2D2`
 
@@ -286,7 +283,7 @@ sudo apt-get install vim curl git zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. One such alias may be similiar to the following; which should be added to the  `~/.zshrc` file:
+For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. One such alias may be similiar to the following; which should be added to the `~/.zshrc` file:
 
 ```txt
 # Navigation Aliases
@@ -305,9 +302,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 Follow the guide at <https://github.com/romkatv/powerlevel10k>
 
->NOTE: Read instructions in the above guide all the way through for each step. It is easy to skip the updating of the terminal's profile font, and setting ZSH_THEME="powerlevel10k/powerlevel10k" in `~/.zshrc`.
+> NOTE: Read instructions in the above guide all the way through for each step. It is easy to skip the updating of the terminal's profile font, and setting ZSH_THEME="powerlevel10k/powerlevel10k" in `~/.zshrc`.
 >
->NOTE: For Windows Terminal go to settings and add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at <https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face>
+> NOTE: For Windows Terminal go to settings and add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at <https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face>
 
 When running the Powerlevel10k config use the following styles:
 
@@ -331,8 +328,8 @@ Instant Prompt Mode = Verbose
 
 ## Step 4 - Use ZSH Terminal in VS Code
 
->NOTE: This applies only for Windows 10
+> NOTE: This applies only for Windows 10
 
 The `Remote - WSL` extension for vscode that allows VS Code’s UI to run on Windows, while all the commands, extensions, and even the terminal, run on Linux. For more information for how to use `Remote - WSL` read the extensions documentation.
 
->NOTE: All VS Code extensions will have to be installed for WSL. This is very easy to do. Assuming the `Remote - WSL` is installed and you're running VS Code in WSL mode then simply visit the Extensions tab on the left and click the install buttons.
+> NOTE: All VS Code extensions will have to be installed for WSL. This is very easy to do. Assuming the `Remote - WSL` is installed and you're running VS Code in WSL mode then simply visit the Extensions tab on the left and click the install buttons.
