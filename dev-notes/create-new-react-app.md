@@ -10,19 +10,19 @@
   - [Step 4-2 - Install Prettier Packages](#step-4-2---install-prettier-packages)
   - [Step 4-3 - Configure ESLint](#step-4-3---configure-eslint)
   - [Step 4-4 - Add Linting & Prettier Scripts](#step-4-4---add-linting--prettier-scripts)
+  - [Step 4-4 - Add .prettierignore](#step-4-4---add-prettierignore)
 - [Step 5 - Setup Pre-Commit Hooks](#step-5---setup-pre-commit-hooks)
   - [Step 5-1 - Install and Setup Husky](#step-5-1---install-and-setup-husky)
   - [Step 5-2 - Install and Setup Lint Staged](#step-5-2---install-and-setup-lint-staged)
   - [Step 5-3 - Setup Pre-Commit Hooks](#step-5-3---setup-pre-commit-hooks)
 - [Step X - Add Remote Repository](#step-x---add-remote-repository)
+- [Step X - Add Theme](#step-x---add-theme)
 - [Step X - Update Readme](#step-x---update-readme)
 - [Step X - Update manifest.json](#step-x---update-manifestjson)
 
 ## Step 0 - Install Yarn
 
-Install or update the most recent version of yarn v1 globally. Note: Installation of yarn 2 will happen locally after running the create react app. Reference the following yarn install guide for updates to the process. (At the time this guide was created Create React App was not compatible with yarn v2's Zero-Installs feature.)
-
-[https://yarnpkg.com/getting-started/install](https://yarnpkg.com/getting-started/install)
+Install or update the most recent version of yarn v1 globally. Note: Installation of yarn v2 will happen locally after running the create react app. Reference the following yarn install guide for updates to the process. [https://yarnpkg.com/getting-started/install](https://yarnpkg.com/getting-started/install)
 
 Run the following command to install / update yarn globally.
 
@@ -36,14 +36,18 @@ Use the instructions below to create a new React app using yarn.
 
 [https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
 
-Then install yarn 2 locally by running the following commands (at the time this guide was created, Create React App was not compatible with yarn v2's Zero-Installs feature.):
+Then install yarn 2 locally by running the following commands:
 
 ```shell
 rm -rf node_modules
 yarn set version berry
 ```
 
-Update the `.gitignore` to include files that should be ignored when not using the Zero-Installs feature of yarn v2
+> NOTE: At the time this guide was created, Create React App was not compatible with yarn v2's Zero-Installs feature. The `.gitignore` and `.yarnrc.yml` files will need modified in order for the app to work properly with yarn v2.
+
+Update the `.gitignore` to include files that should be ignored when not using the Zero-Installs feature of yarn v2 [https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored](https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored)
+
+(At the time this guide was created Create React App was not compatible with yarn v2's Zero-Installs feature.)
 
 ```txt
 # yarn
@@ -56,7 +60,7 @@ Update the `.gitignore` to include files that should be ignored when not using t
 .pnp.*
 ```
 
-Update .yarnrc.yml with to contain the following:
+Update the `.yarnrc.yml` file to contain the `nodeLinker` property defined below:
 
 ```yml
 yarnPath: ".yarn/releases/yarn-berry.cjs"
@@ -237,6 +241,43 @@ Add the following scripts to the `/package.json` under the `"scripts"` section.
 }
 ```
 
+### Step 4-4 - Add .prettierignore
+
+Create a `.prettierignore` at the project root and add the following:
+
+```text
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# husky
+.husky/*
+
+# yarn
+.yarn/*
+.pnp.*
+yarn.lock
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+```
+
+
 ## Step 5 - Setup Pre-Commit Hooks
 
 ### Step 5-1 - Install and Setup Husky
@@ -295,9 +336,54 @@ git branch -M master
 git push -u origin master
 ```
 
+## Step X - Add Theme
+
+https://css-tricks.com/theming-and-theme-switching-with-react-and-styled-components/
+
+https://material.io/design/color/the-color-system.html#color-theme-creation
+
+https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=F44336&secondary.color=FAFAFA
+
+https://mui.com/customization/default-theme/
+
+
+
 ## Step X - Update Readme
 
-add notes about lint scripts, pre commit hooks, ci pipeline including checks for github
+add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github
+
+
+A JavaScript comment of `// prettier-ignore` will exclude the next node in the abstract syntax tree from formatting.
+
+For example:
+
+```js
+matrix(
+  1, 0, 0,
+  0, 1, 0,
+  0, 0, 1
+)
+
+// prettier-ignore
+matrix(
+  1, 0, 0,
+  0, 1, 0,
+  0, 0, 1
+)
+```
+
+will be transformed to:
+
+```js
+matrix(1, 0, 0, 0, 1, 0, 0, 0, 1);
+
+// prettier-ignore
+matrix(
+  1, 0, 0,
+  0, 1, 0,
+  0, 0, 1
+)
+```
 
 you can bypase `pre-commit`  hooks useing git `--no-verify` option. Ex:
 
