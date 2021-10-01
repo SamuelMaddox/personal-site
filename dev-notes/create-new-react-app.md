@@ -32,11 +32,15 @@ npm install -g yarn
 
 ## Step 1 - Create React App Using Yarn
 
-Use the instructions below to create a new React app using yarn.
+> Create React App Instructions can be found at [https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
 
-[https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
+Use the following command to create a react app that uses typescript (if you don't want to use typescript than ommit `--template typescript` from the command):
 
-Then install yarn 2 locally by running the following commands:
+```shell
+yarn create react-app my-app --template typescript
+```
+
+Then install yarn 2 locally by navigating into the new project and running the following commands:
 
 ```shell
 rm -rf node_modules
@@ -165,7 +169,7 @@ Q: Which framework does your project use?
 A: React
 
 Q: Does your project use TypeScript?
-A: No
+A: (Yes | No)
 
 Q: Where does your code run?
 A: Browser
@@ -338,7 +342,7 @@ git push -u origin master
 
 ## Step X - Add Theme
 
-https://css-tricks.com/theming-and-theme-switching-with-react-and-styled-components/
+https://blog.bitsrc.io/3-ways-to-theme-react-components-9cfa631351e9
 
 https://material.io/design/color/the-color-system.html#color-theme-creation
 
@@ -350,8 +354,9 @@ https://mui.com/customization/default-theme/
 
 ## Step X - Update Readme
 
-add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github
+typescript cheat sheet https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example
 
+add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github
 
 A JavaScript comment of `// prettier-ignore` will exclude the next node in the abstract syntax tree from formatting.
 
