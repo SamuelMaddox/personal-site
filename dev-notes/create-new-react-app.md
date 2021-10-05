@@ -53,8 +53,6 @@ yarn set version berry
 
 Update the `.gitignore` to include files that should be ignored when not using the Zero-Installs feature of yarn v2 [https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored](https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored)
 
-(At the time this guide was created Create React App was not compatible with yarn v2's Zero-Installs feature.)
-
 ```txt
 # yarn
 .yarn/*
@@ -66,10 +64,9 @@ Update the `.gitignore` to include files that should be ignored when not using t
 .pnp.*
 ```
 
-Update the `.yarnrc.yml` file to contain the `nodeLinker` property defined below:
+Update the `.yarnrc.yml` file to include the `nodeLinker` property defined below:
 
 ```yml
-yarnPath: ".yarn/releases/yarn-berry.cjs"
 nodeLinker: "node-modules"
 ```
 
