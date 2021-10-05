@@ -11,8 +11,7 @@
   - [Step 4-4 - Configure ESLint](#step-4-4---configure-eslint)
   - [Step 4-5 - Add `.prettierignore`](#step-4-5---add-prettierignore)
   - [Step 4-6 - Add Linting & Prettier Scripts](#step-4-6---add-linting--prettier-scripts)
-  - [Step 4-6 - Fix linting issues](#step-4-6---fix-linting-issues)
-    - [Couldn't find the config "react-app](#couldnt-find-the-config-react-app)
+  - [Step 4-5 - Fix "Couldn't find config ______" bug](#step-4-5---fix-couldnt-find-config-______-bug)
 - [Step 5 - Setup Pre-Commit Hooks](#step-5---setup-pre-commit-hooks)
   - [Step 5-1 - Install and Setup Husky](#step-5-1---install-and-setup-husky)
   - [Step 5-2 - Install and Setup Lint Staged](#step-5-2---install-and-setup-lint-staged)
@@ -36,7 +35,7 @@ npm install -g yarn
 
 > Create React App Instructions can be found at [https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
 
-Use the following command to create a react app that uses typescript (if you don't want to use typescript than ommit `--template typescript` from the command):
+Use the following command to create a react app that uses TypeScript (if you don't want to use TypeScript than ommit `--template typescript` from the command):
 
 ```shell
 yarn create react-app my-app --template typescript
@@ -78,24 +77,30 @@ yarn install
 
 ## Step 2 - Clean Up Extra Code & Files
 
-> The following is a list of what to delete as of v4.0.3 of create-react-app
+> The following is a list of what to clean up & delete as of v4.0.3 of create-react-app
+>
+> NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we remove `import React from 'react'`
 
 - In `/public/index.html` remove comments.
 - In `/src/App.css` remove all styles and rename file to `app.css`.
 - In `/src/App.js`
-  - Rename file to `app.jsx`.
+  - Rename file to `app.jsx` or `app.tsx`.
+  - Remove `import React from 'react'`.
+  - If TypeScript is being used, add the `ReactElement` return type to the function component
   - Remove jsx in the return statement and replace with `<></>`.
   - Remove `import logo from "./logo.svg";`.
   - Rename import from `./App.css` to `./app.css`.
   - Add `import React from "react";`.
 - In `/src/App.test.js`
-  - Rename file to `app.test.jsx`
+  - Rename file to `app.test.jsx` or `app.test.tsx`.
+  - Remove `import React from 'react'`.
   - Remove the test function
   - Rename import from `./App` to `./app`.
   - Add `import React from "react";`.
 - In `/src/index.css` remove all styles.
 - In `/src/index.js`
-  - Rename file to `index.jsx`
+  - Rename file to `index.jsx` or `index.tsx`.
+  - Remove `import React from 'react'`.
   - Remove code/comments related to `reportWebVitals();`.
   - Update `import App from "/App";` to `/app`.
 - Delete `/src/logo.svg` and `/src/reportWebVitals.js`.
@@ -135,12 +140,16 @@ Create a `/launch.json` file and add the following to it
 Remove the following code from `/package.json`
 
 ```json
+{
+  ...
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
   },
+  ...
+}
 ```
 
 ### Step 4-2 - Install ESLint Packages
@@ -183,7 +192,14 @@ Q: What format do you want your config file to be in?
 A: JSON
 
 Q: Checking peerDependencies ... The config that you've selected requires the following dependencies: ... Would you like to install them now with npm?
-A: No (We're using yarn so we have to install the peer dependencies ourselves)
+A: No (Some dependencies might already be installed implicitly by create-react-app)
+```
+
+If you're using TypeScript and you ran the `create-react-app` script using the `--template typescript` flag then the it should have already implicitly installed `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser`. This can be checked by running the following commands:
+
+```shell
+npm ls @typescript-eslint/eslint-plugin
+npm ls @typescript-eslint/parser
 ```
 
 Next, install the `eslint-config-airbnb` and it's peer dependencies ([eslint-config-airbnb documentation](https://www.npmjs.com/package/eslint-config-airbnb))
@@ -192,22 +208,24 @@ Next, install the `eslint-config-airbnb` and it's peer dependencies ([eslint-con
 yarn add eslint-config-airbnb
 ```
 
-The following will list the peer dependencies we need to install
+Then run the following command to show the list of peer dependencies we may need to install.
 
 ```shell
 npm info eslint-config-airbnb@latest peerDependencies
 ```
 
-Then run the following for each listed peer dependency (Note that we have already installed eslint)
+For each peer dependency, check to see if `create-react-app` has already implicitly installed them by running the following command:
+
+```shell
+npm ls <dependency>
+```
+
+> NOTE: As of 10/5/2021 all the peer dependencies where already implicitly installed
+
+If the dependency is not already installed then install it using this command:
 
 ```shell
 yarn add <dependency>@<version>
-```
-
-The following are the peer depencies as of 10/4/2021:
-
-```shell
-yarn add eslint-plugin-import@^2.22.1 eslint-plugin-jsx-a11y@^6.4.1 eslint-plugin-react@^7.21.5 eslint-plugin-react-hooks@^4
 ```
 
 ### Step 4-3 - Install Prettier Packages
@@ -226,28 +244,117 @@ yarn add eslint-config-prettier
 
 ### Step 4-4 - Configure ESLint
 
-In the `/eslintrc.json` file replace the `"extends"` section with the following (Note that the order does matter):
+Open the `.eslintrc.json` config file.
+
+First, convert the file to indent using 2 spaces.
+
+1. In VSCode, open the command palette (`Ctrl-Shift-P`)
+2. Run the command `Indent Using Spaces`
+3. Select the value `2`.
+4. Format the document by using the shortcut `Shift-Alt-F`, or open the command palette (`Ctrl-Shift-P`) and select `Format Document`
+
+Next, replace the `"extends"` section with the following (Note that the order does matter):
+
+If Using TypeScript:
 
 ```json
-"extends": [
+{
+  ...
+  "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "react-app",
     "react-app/jest",
     "airbnb",
     "prettier"
-],
+  ],
+  ...
+}
 ```
 
-> Note, As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. this is why we supress the `"react/react-in-jsx-scope"` rule.
-
-In the `/eslintrc.json` file update the `rules` section to contain the following:
+If NOT using TypeScript:
 
 ```json
-"rules": {
+{
+  ...
+  "extends": [
+   "eslint:recommended",
+   "plugin:react/recommended",
+   "react-app",
+   "react-app/jest",
+   "airbnb",
+   "prettier"
+  ],
+  ...
+}
+```
+
+Then, update the `rules` section to contain the following:
+
+> NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we supress the `"react/react-in-jsx-scope"` rule.
+
+If Using TypeScript:
+
+```json
+{
+  ...
+    "rules": {
     ...
-    // suppress errors for missing 'import React' in files
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", "tsx"] }],
     "react/react-in-jsx-scope": "off"
+  },
+  ...
+}
+```
+
+If NOT using TypeScript:
+
+```json
+{
+  ...
+  "rules": {
+    ...
+    "react/react-in-jsx-scope": "off"
+  }
+  ...
+}
+```
+
+Finally, if your using TypeScript, add the following sections to the config file:
+
+(Skip if your not using TypeScript)
+
+```json
+{
+  ...
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "rules": {
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": ["error"]
+      }
+    }
+  ]
+  ...
 }
 ```
 
@@ -294,27 +401,24 @@ Add the following scripts to the `/package.json` under the `"scripts"` section.
 ```json
 "scripts": {
   ...
-  "lint": "eslint --ext js,jsx src",
-  "lint:fix": "eslint --fix --ext js,jsx src",
-  "lint:check": "eslint --max-warnings 0 --ext js,jsx src",
+  "lint": "eslint --ext js,jsx,ts,tsx src",
+  "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src",
+  "lint:check": "eslint --max-warnings 0 --ext js,jsx,ts,tsx src",
   "prettier": "prettier --write src",
   "prettier:check": "prettier --check src"
 }
 ```
 
-### Step 4-6 - Fix linting issues
+### Step 4-5 - Fix "Couldn't find config ______" bug
 
-https://create-react-app.dev/docs/setting-up-your-editor
-https://andrebnassis.medium.com/setting-eslint-on-a-react-typescript-project-2021-1190a43ffba
-
-#### Couldn't find the config "react-app
-
-If, after running `yarn lint`, you encounter an error saying `couldn't find the config "react-app"` then delete the `node_modules` and `yarn.lock` files and then run `yarn install` again.
+Due to `create-react-app` installing some of the eslint configs for us, it's possible that conflicting or duplicate ESLint config dependencies could have been installed when we were adding our custom configs. To fix this bug, delete the `node_modules` and `yarn.lock`, and then run `yarn install`
 
 ```shell
 rm -rf node_modules yarn.lock
 yarn install
 ```
+
+If this doesn't fix the issue, then `eslint-config-airbnb` or one of it's peer dependencies were probably missed and needs to be installed.
 
 ## Step 5 - Setup Pre-Commit Hooks
 
@@ -329,7 +433,7 @@ yarn add husky
 yarn husky install
 ```
 
-To automatically have Git hooks enabled after install, edit the sripts section the the  `/package.json` to include the following:
+To automatically have Git hooks enabled after install, edit the sripts section in the  `package.json` file to include the following:
 
 ```json
 "scripts": {
@@ -348,13 +452,19 @@ yarn add lint-staged
 
 TODO: linting doesn't work on css, but we still want prettier to run on these files.
 
+Add the following to the `package.json` file
+
 ```json
-"lint-staged": {
-  "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-    "yarn lint:check",
-    "yarn prettier"
-  ]
-},
+{
+  ...
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "yarn lint:check",
+      "yarn prettier"
+    ]
+  },
+  ...
+}
 ```
 
 ### Step 5-3 - Setup Pre-Commit Hooks
