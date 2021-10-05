@@ -7,10 +7,12 @@
 - [Step 4 - Setup ESLint & Prettier](#step-4---setup-eslint--prettier)
   - [Step 4-1 - Remove Default Config](#step-4-1---remove-default-config)
   - [Step 4-2 - Install ESLint Packages](#step-4-2---install-eslint-packages)
-  - [Step 4-2 - Install Prettier Packages](#step-4-2---install-prettier-packages)
-  - [Step 4-3 - Configure ESLint](#step-4-3---configure-eslint)
-  - [Step 4-4 - Add Linting & Prettier Scripts](#step-4-4---add-linting--prettier-scripts)
-  - [Step 4-4 - Add .prettierignore](#step-4-4---add-prettierignore)
+  - [Step 4-3 - Install Prettier Packages](#step-4-3---install-prettier-packages)
+  - [Step 4-4 - Configure ESLint](#step-4-4---configure-eslint)
+  - [Step 4-5 - Add `.prettierignore`](#step-4-5---add-prettierignore)
+  - [Step 4-6 - Add Linting & Prettier Scripts](#step-4-6---add-linting--prettier-scripts)
+  - [Step 4-6 - Fix linting issues](#step-4-6---fix-linting-issues)
+    - [Couldn't find the config "react-app](#couldnt-find-the-config-react-app)
 - [Step 5 - Setup Pre-Commit Hooks](#step-5---setup-pre-commit-hooks)
   - [Step 5-1 - Install and Setup Husky](#step-5-1---install-and-setup-husky)
   - [Step 5-2 - Install and Setup Lint Staged](#step-5-2---install-and-setup-lint-staged)
@@ -152,10 +154,10 @@ Run the following command to to install ESLint.
 yarn add eslint
 ````
 
-Then run to initialize it providing the following answers:
+Then run the following command and provide the following answers to set up the configuration file for ESLint.
 
 ```shell
-npx eslint --init
+yarn run eslint --init
 ```
 
 ```txt
@@ -183,25 +185,35 @@ A: Airbnb: https://github.com/airbnb/javascript
 Q: What format do you want your config file to be in?
 A: JSON
 
-Q: Would you like to install them now with npm?
-A: No
+Q: Checking peerDependencies ... The config that you've selected requires the following dependencies: ... Would you like to install them now with npm?
+A: No (We're using yarn so we have to install the peer dependencies ourselves)
 ```
 
-Double check the following by referencing the [eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb) documentation.
-
-Run the following command to list peer dependancies:
+Next, install the `eslint-config-airbnb` and it's peer dependencies ([eslint-config-airbnb documentation](https://www.npmjs.com/package/eslint-config-airbnb))
 
 ```shell
-npm info "eslint-config-airbnb@latest" peerDependencies
+yarn add eslint-config-airbnb
 ```
 
-Then run the following command for each peer dependency (I tend to install the latest version of the major version listed):
+The following will list the peer dependencies we need to install
+
+```shell
+npm info eslint-config-airbnb@latest peerDependencies
+```
+
+Then run the following for each listed peer dependency (Note that we have already installed eslint)
 
 ```shell
 yarn add <dependency>@<version>
 ```
 
-### Step 4-2 - Install Prettier Packages
+The following are the peer depencies as of 10/4/2021:
+
+```shell
+yarn add eslint-plugin-import@^2.22.1 eslint-plugin-jsx-a11y@^6.4.1 eslint-plugin-react@^7.21.5 eslint-plugin-react-hooks@^4
+```
+
+### Step 4-3 - Install Prettier Packages
 
 Run the following command to install prettier
 
@@ -215,7 +227,7 @@ Run the following command to install ESLint configuration for prettier.
 yarn add eslint-config-prettier
 ```
 
-### Step 4-3 - Configure ESLint
+### Step 4-4 - Configure ESLint
 
 In the `/eslintrc.json` file replace the `"extends"` section with the following (Note that the order does matter):
 
@@ -230,22 +242,19 @@ In the `/eslintrc.json` file replace the `"extends"` section with the following 
 ],
 ```
 
-### Step 4-4 - Add Linting & Prettier Scripts
+> Note, As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. this is why we supress the `"react/react-in-jsx-scope"` rule.
 
-Add the following scripts to the `/package.json` under the `"scripts"` section.
+In the `/eslintrc.json` file update the `rules` section to contain the following:
 
 ```json
-"scripts": {
-  ...
-  "lint": "eslint src/*",
-  "lint:fix": "eslint src/* --fix",
-  "lint:check": "eslint src/* --max-warnings 0",
-  "prettier": "prettier --write src",
-  "prettier:check": "prettier --check src"
+"rules": {
+    ...
+    // suppress errors for missing 'import React' in files
+    "react/react-in-jsx-scope": "off"
 }
 ```
 
-### Step 4-4 - Add .prettierignore
+### Step 4-5 - Add `.prettierignore`
 
 Create a `.prettierignore` at the project root and add the following:
 
@@ -281,6 +290,34 @@ yarn-debug.log*
 yarn-error.log*
 ```
 
+### Step 4-6 - Add Linting & Prettier Scripts
+
+Add the following scripts to the `/package.json` under the `"scripts"` section.
+
+```json
+"scripts": {
+  ...
+  "lint": "eslint --ext js,jsx src",
+  "lint:fix": "eslint --fix --ext js,jsx src",
+  "lint:check": "eslint --max-warnings 0 --ext js,jsx src",
+  "prettier": "prettier --write src",
+  "prettier:check": "prettier --check src"
+}
+```
+
+### Step 4-6 - Fix linting issues
+
+https://create-react-app.dev/docs/setting-up-your-editor
+https://andrebnassis.medium.com/setting-eslint-on-a-react-typescript-project-2021-1190a43ffba
+
+#### Couldn't find the config "react-app
+
+If, after running `yarn lint`, you encounter an error saying `couldn't find the config "react-app"` then delete the `node_modules` and `yarn.lock` files and then run `yarn install` again.
+
+```shell
+rm -rf node_modules yarn.lock
+yarn install
+```
 
 ## Step 5 - Setup Pre-Commit Hooks
 
@@ -312,6 +349,8 @@ Install `lint-staged` to run linter and prettier only on staged files.
 yarn add lint-staged
 ```
 
+TODO: linting doesn't work on css, but we still want prettier to run on these files.
+
 ```json
 "lint-staged": {
   "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
@@ -325,7 +364,7 @@ yarn add lint-staged
 
 Run the following commands to setup git pre-commit hooks
 
-```
+```shell
 yarn husky add .husky/pre-commit "yarn lint-staged"
 yarn husky add .husky/pre-commit "yarn test:nowatch"
 ```
