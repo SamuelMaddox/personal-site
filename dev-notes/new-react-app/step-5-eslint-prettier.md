@@ -186,6 +186,7 @@ If Using TypeScript:
         "tsx": "never"
       }
     ],
+    "import/prefer-default-export": "off",
     "react/jsx-filename-extension": ["error", {
       "allow": "as-needed",
       "extensions": [".jsx", "tsx"]
@@ -203,6 +204,7 @@ If NOT using TypeScript:
   ...
   "rules": {
     ...
+    "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off"
   }
   ...

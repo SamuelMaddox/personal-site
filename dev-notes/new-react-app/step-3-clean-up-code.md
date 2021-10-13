@@ -5,17 +5,17 @@
 > NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we remove `import React from 'react'`
 
 - In `/public/index.html` remove comments.
-- In `/src/App.css` remove all styles and rename file to `app.css`.
+- In `/src/App.css` remove all styles.
 - In `/src/App.js`
 
-  - Rename file to `app.jsx` or `app.tsx`.
+  - Rename file to `App.jsx` or `App.tsx`.
   - Remove all code and replace with the following:
 
     If using TypeScript:
 
     ```javascript
     import { ReactElement } from "react";
-    import "./app.css";
+    import "./App.css";
 
     function App(): ReactElement {
       return <h1>Hello World!</h1>;
@@ -27,7 +27,7 @@
     If NOT using TypeScript:
 
     ```javascript
-    import "./app.css";
+    import "./App.css";
 
     function App() {
       return <h1>Hello World!</h1>;
@@ -41,7 +41,6 @@
 
 - In `/src/App.test.js`
 
-  - Rename file to `app.test.js` or `app.test.ts`.
   - Remove all code and replace with the following:
 
     ```javascript
@@ -54,7 +53,6 @@
 - In `/src/index.js`
   - Rename file to `index.jsx` or `index.tsx`.
   - Remove comments related to `reportWebVitals();`.
-  - Update `import App from "./App";` to `./app`.
 - Delete `/src/logo.svg`.
 - In `reportWebVitals.ts` add a return type of `void` to the `reportWebVitals()` arrow function
 - In `/package.json`

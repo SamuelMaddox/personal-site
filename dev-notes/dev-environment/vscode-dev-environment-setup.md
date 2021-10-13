@@ -30,6 +30,7 @@
   "workbench.startupEditor": "newUntitledFile",
   "editor.fontSize": 13,
   "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
   "editor.quickSuggestionsDelay": 500,
   "editor.tabSize": 2,
   "editor.renderWhitespace": "boundary",
@@ -142,7 +143,7 @@
     "!Split"
   ],
   "yaml.schemas": {},
-  "aws.profile": "profile:default"
+  "redhat.telemetry.enabled": false
 }
 ```
 
@@ -167,6 +168,12 @@
 # Setup Terminal
 
 ## Step 0 - Setup WSL & Windows Terminal
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+
+IMPORTANT!!!! WSL is now a Windows 11 app. This part of the guide may have changed
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
 
 > NOTE: If you're not on Windows continue to Step 1
 >

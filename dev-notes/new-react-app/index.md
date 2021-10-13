@@ -2,7 +2,6 @@
 
 - [Step X - React Router](#step-x---react-router)
 - [Step X - React Helmet](#step-x---react-helmet)
-- [Step X - Auth Skeleton](#step-x---auth-skeleton)
 - [Step X - Config Skeleton](#step-x---config-skeleton)
 - [Step X - Add Responsive Break Points](#step-x---add-responsive-break-points)
 - [Step X - CSS Reset & Add Theme](#step-x---css-reset--add-theme)
@@ -10,15 +9,17 @@
 - [Step X - Storybook](#step-x---storybook)
 - [Step X - Update Readme](#step-x---update-readme)
 
+============================
+
 ## Step X - React Router
 
 404 page
 
+code splitting
+
 ## Step X - React Helmet
 
 https://github.com/nfl/react-helmet
-
-## Step X - Auth Skeleton
 
 ## Step X - Config Skeleton
 
@@ -27,6 +28,10 @@ https://github.com/nfl/react-helmet
 Do this using css variables maybe? how to share across css files
 
 ## Step X - CSS Reset & Add Theme
+
+- css modules https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+
+- stylelint
 
 dark/light mode 3 options, (browser setting | light | dark)
 
