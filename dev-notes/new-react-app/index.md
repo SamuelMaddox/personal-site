@@ -63,6 +63,10 @@ typescript cheat sheet https://react-typescript-cheatsheet.netlify.app/docs/basi
 
 ======
 
+- report web vitals
+
+======
+
 File naming convention and project file structure
 
 ======
