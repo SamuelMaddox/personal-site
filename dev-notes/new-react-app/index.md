@@ -1,8 +1,5 @@
 # Setup New React App <!-- omit in toc -->
 
-- [Step X - React Router](#step-x---react-router)
-- [Step X - React Helmet](#step-x---react-helmet)
-- [Step X - Config Skeleton](#step-x---config-skeleton)
 - [Step X - Add Responsive Break Points](#step-x---add-responsive-break-points)
 - [Step X - CSS Reset & Add Theme](#step-x---css-reset--add-theme)
 - [Step X - Update manifest.json & Meta tags & Title tag](#step-x---update-manifestjson--meta-tags--title-tag)
@@ -11,18 +8,6 @@
 
 ============================
 
-## Step X - React Router
-
-404 page
-
-code splitting
-
-## Step X - React Helmet
-
-https://github.com/nfl/react-helmet
-
-## Step X - Config Skeleton
-
 ## Step X - Add Responsive Break Points
 
 Do this using css variables maybe? how to share across css files
@@ -30,6 +15,8 @@ Do this using css variables maybe? how to share across css files
 ## Step X - CSS Reset & Add Theme
 
 - css modules https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+
+(This needs tested). The Contains Attribute Selector `div[class*="post-"]` might work to style child components.
 
 - stylelint
 
@@ -105,7 +92,13 @@ https://create-react-app.dev/docs/code-splitting
 
 ======
 
-add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github, react helmet, how to run debugger in vscode (first `yarn start`, then run debugger)
+add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger)
+
+code splitting. react router docs has one way to do it. create react app also has their way to do it using react router
+
+https://reactrouter.com/web/guides/code-splitting
+https://create-react-app.dev/docs/code-splitting/#with-react-router
+https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
 
 ======
 

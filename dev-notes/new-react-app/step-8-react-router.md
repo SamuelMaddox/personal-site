@@ -1,22 +1,30 @@
-# Step 8 - React Router
+# Step 8 - React Router & React Helmet <!-- omit in toc -->
 
-[https://www.npmjs.com/package/react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [Step 8-1 - Install React Router](#step-8-1---install-react-router)
+- [Step 8-3 - Install React Helmet](#step-8-3---install-react-helmet)
+
+## Step 8-1 - Install React Router
+
+React Router is a collection of navigational components that compose declaratively with your application. To install react router
 
 ```shell
 yarn add react-router-dom @types/react-router-dom
 ```
 
-Typescript should also run this command
+Projects using Typescript should also run this command
 
 ```shell
 yarn add @types/react-router-dom
 ```
 
-## Step 8-2 - Auth Skeleton
+## Step 8-3 - Install React Helmet
 
-include react router code for redirecting
+```shell
+yarn add react-helmet
+```
 
-/auth/login
-/auth/create-account
+Projects using Typescript should also run this command
 
-403 forbidden route display 404 component instead
+```shell
+yarn add @types/react-helmet
+```

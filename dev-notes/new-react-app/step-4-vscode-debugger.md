@@ -1,6 +1,6 @@
 # Step 4 - VSCode Debugger
 
-Adding a launch.js file will allow debugging from vscode [https://create-react-app.dev/docs/setting-up-your-editor/#debugging-in-the-editor](https://create-react-app.dev/docs/setting-up-your-editor/#debugging-in-the-editor)
+Adding a launch.js file will allow debugging from vscode. See the create react app docs about [debugging in the editor](https://create-react-app.dev/docs/setting-up-your-editor/#debugging-in-the-editor) for more information
 
 Create a `.vscode` folder at the project root and add a `launch.json` file to that folder. Then add the following configuration:
 
