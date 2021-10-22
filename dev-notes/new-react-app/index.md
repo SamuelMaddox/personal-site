@@ -1,16 +1,12 @@
 # Setup New React App <!-- omit in toc -->
 
-- [Step X - Add Responsive Break Points](#step-x---add-responsive-break-points)
 - [Step X - CSS Reset & Add Theme](#step-x---css-reset--add-theme)
 - [Step X - Update manifest.json & Meta tags & Title tag](#step-x---update-manifestjson--meta-tags--title-tag)
 - [Step X - Storybook](#step-x---storybook)
 - [Step X - Update Readme](#step-x---update-readme)
+  - [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
 
 ============================
-
-## Step X - Add Responsive Break Points
-
-Do this using css variables maybe? how to share across css files
 
 ## Step X - CSS Reset & Add Theme
 
@@ -23,8 +19,6 @@ Do this using css variables maybe? how to share across css files
 dark/light mode 3 options, (browser setting | light | dark)
 
 Styles for font family and typography (https://elementor.com/blog/guide-to-web-typography/?utm_source=google&utm_medium=cpc&utm_campaign=10759652828&utm_term=&gclid=CjwKCAjwtfqKBhBoEiwAZuesiG9xJo96zZReEQlkU_eSr3F-PCxTeC_mgc5BU2tEypUj5xfWdczX7BoCwIsQAvD_BwE)
-
-https://create-react-app.dev/docs/adding-css-reset/
 
 https://blog.bitsrc.io/3-ways-to-theme-react-components-9cfa631351e9
 
@@ -149,3 +143,15 @@ Warning: Failed prop type: Invalid prop `id` of type `number` supplied to `Table
 ```
 
 ======
+
+### Screen Dimensions Reference Table
+
+| Name         | Dimensions  |
+| ------------ | ----------- |
+| Small Phone  | 375 x 667   |
+| Large Phone  | 428 x 926   |
+| Small Tablet | 768 x 1024  |
+| Large Tablet | 1024 x 1366 |
+| Laptop       | 1280 x 720  |
+| Desktop      | 1920 x 1080 |
+| QHD          | 3440 x 1440 |

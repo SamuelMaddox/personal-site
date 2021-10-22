@@ -5,7 +5,7 @@
 > NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we remove `import React from 'react'`
 
 - In `/public/index.html` remove comments.
-- In `/src/App.css` remove all styles.
+- In `/src/App.css` remove all styles and add the comment `/* Save For Later Use */`.
 - In `/src/App.js`
 
   - Rename file to `App.jsx` or `App.tsx`.
@@ -49,7 +49,7 @@
     test.todo("write tests");
     ```
 
-- In `/src/index.css` remove all styles.
+- In `/src/index.css` remove all styles and add the comment `/* Save For Later Use */`.
 - In `/src/index.js`
   - Rename file to `index.jsx` or `index.tsx`.
   - Remove comments related to `reportWebVitals();`.

@@ -162,6 +162,7 @@
 - open in browser
 - Prettier
 - Remote - WSL
+- Stylelint
 - TODO Highlight
 - YAML
 

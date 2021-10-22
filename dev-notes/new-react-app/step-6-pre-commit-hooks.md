@@ -16,7 +16,7 @@ yarn add husky
 yarn husky install
 ```
 
-To automatically have Git hooks enabled after install, edit the sripts section in the `package.json` file to include the following:
+To automatically have Git hooks enabled after a `yarn install`, edit the sripts section in the `package.json` file to include the following:
 
 ```json
 {
@@ -42,8 +42,13 @@ Add the following configuration to the `package.json` file:
 {
   ...
   "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "yarn lint:check"
+    ],
+    "src/**/*.css": [
+      "stylelint"
+    ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "yarn lint:check",
       "yarn prettier"
     ]
   },
