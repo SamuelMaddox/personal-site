@@ -28,6 +28,7 @@
 ```json
 {
   "workbench.startupEditor": "newUntitledFile",
+  "css.lint.unknownAtRules": "ignore",
   "editor.fontSize": 13,
   "editor.formatOnSave": true,
   "editor.guides.bracketPairs": true,

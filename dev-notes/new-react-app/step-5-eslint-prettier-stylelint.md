@@ -138,11 +138,11 @@ If using TypeScript:
   ...
   "extends": [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "react-app",
     "react-app/jest",
     "airbnb",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   ...
@@ -170,13 +170,14 @@ Then, update the `rules` section to contain the following:
 
 > NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we supress the `"react/react-in-jsx-scope"` rule.
 
+> NOTE: If using Typescript the eslint `"no-sahdow"` will need disabled as it can report incorrect errors. it will be replaced by the `"@typescript-eslint/no-shadow"` rule.
+
 If Using TypeScript:
 
 ```json
 {
   ...
     "rules": {
-    ...
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -188,11 +189,16 @@ If Using TypeScript:
       }
     ],
     "import/prefer-default-export": "off",
-    "react/jsx-filename-extension": ["error", {
-      "allow": "as-needed",
-      "extensions": [".jsx", "tsx"]
-    }],
-    "react/react-in-jsx-scope": "off"
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "allow": "as-needed",
+        "extensions": [".jsx", "tsx"]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"]
   },
   ...
 }
