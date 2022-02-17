@@ -1,7 +1,7 @@
-export { default as defaultTransitions } from "./defaultTransitions";
+export { default as defaultTransitions } from "./DefaultTransitions";
 
 export type {
   ThemeTransitionsEasing,
   ThemeTransitionsDuration,
   ThemeTransitions,
-} from "./types";
+} from "./Types";

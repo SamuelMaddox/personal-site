@@ -1,7 +1,7 @@
 @import-normalize;
-@import "./Fonts/roboto-fonts.css";
-@import "./Fonts/roboto-mono.css";
-@import "./Fonts/roboto-slab.css";
+@import "./Fonts/Roboto.css";
+@import "./Fonts/RobotoMono.css";
+@import "./Fonts/RobotoSlab.css";
 
 :root {
   /* Default CSS Variables to be overwritten by theme configs */

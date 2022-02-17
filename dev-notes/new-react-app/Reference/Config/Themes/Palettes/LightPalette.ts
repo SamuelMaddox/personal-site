@@ -1,5 +1,5 @@
 import { lightToDark } from "./Gray";
-import { ThemePalette } from "./types";
+import { ThemePalette } from "./Types";
 
 const lightPalette: ThemePalette = {
   background: {

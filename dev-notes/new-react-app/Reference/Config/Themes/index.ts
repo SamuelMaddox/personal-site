@@ -1,7 +1,7 @@
-export { default as lightThemeConfig } from "./lightThemeConfig";
-export { default as darkThemeConfig } from "./darkThemeConfig";
+export { default as lightThemeConfig } from "./LightThemeConfig";
+export { default as darkThemeConfig } from "./DarkThemeConfig";
 
-export type { ThemeName, ThemeMode, ThemeOpts, Theme } from "./types";
+export type { ThemeName, ThemeMode, ThemeOpts, Theme } from "./Types";
 
 export type {
   ThemePaletteColor,

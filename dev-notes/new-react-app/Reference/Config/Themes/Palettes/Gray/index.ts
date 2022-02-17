@@ -1,4 +1,4 @@
-export { default as lightToDark } from "./lightToDark";
-export { default as darkToLight } from "./darkToLight";
+export { default as lightToDark } from "./LightToDark";
+export { default as darkToLight } from "./DarkToLight";
 
-export type { ThemePaletteGray } from "./types";
+export type { ThemePaletteGray } from "./Types";

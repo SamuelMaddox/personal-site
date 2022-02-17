@@ -1,3 +1,3 @@
-export { default as defaultTypography } from "./defaultTypography";
+export { default as defaultTypography } from "./DefaultTypography";
 
-export type { ThemeTypographyGroup, ThemeTypography } from "./types";
+export type { ThemeTypographyGroup, ThemeTypography } from "./Types";

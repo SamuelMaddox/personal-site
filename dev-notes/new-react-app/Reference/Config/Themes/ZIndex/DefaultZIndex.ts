@@ -1,4 +1,4 @@
-import { ThemeZIndex } from "./types";
+import { ThemeZIndex } from "./Types";
 
 const defaultZIndex: ThemeZIndex = {
   header: 1100,

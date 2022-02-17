@@ -96,7 +96,7 @@ For each peer dependency, check to see if `create-react-app` has already implici
 npm ls <dependency>
 ```
 
-> NOTE: As of 10/5/2021 all the peer dependencies where already implicitly installed
+> NOTE: As of 2/14/2022 all the peer dependencies where already implicitly installed
 
 If the dependency is not already installed then install it using this command:
 
@@ -177,7 +177,7 @@ If Using TypeScript:
 ```json
 {
   ...
-    "rules": {
+  "rules": {
     "import/extensions": [
       "error",
       "ignorePackages",

@@ -1,14 +1,26 @@
 # Setup New React App <!-- omit in toc -->
 
+- [Testing](#testing)
 - [Step X - CSS Reset & Add Theme](#step-x---css-reset--add-theme)
 - [Step X - Update manifest.json & Meta tags & Title tag](#step-x---update-manifestjson--meta-tags--title-tag)
 - [Step X - Storybook](#step-x---storybook)
 - [Step X - Implement Auth](#step-x---implement-auth)
+- [Step X - Setup CI Pipeline & GitHub Webhooks](#step-x---setup-ci-pipeline--github-webhooks)
 - [Step X - Update Readme](#step-x---update-readme)
   - [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
   - [Font Size Rem Reference Table](#font-size-rem-reference-table)
 
 ============================
+
+## Testing
+
+https://create-react-app.dev/docs/debugging-tests#debugging-tests-in-visual-studio-code
+
+testing.
+
+test coverage reporting = yarn test -- --coverage (is there a better way to show this? should this be a script in package json and added to setup documentation? I think this creates a coverage directory in the project that is ignored by git, that contains html file to view coverage. I did add a script for coverage in package.json all this needs covered in project readme)
+
+https://create-react-app.dev/docs/running-tests#coverage-reporting
 
 ## Step X - CSS Reset & Add Theme
 
@@ -45,6 +57,14 @@ https://storybook.js.org/
 ## Step X - Implement Auth
 
 Use AWS Cognito as an example
+
+## Step X - Setup CI Pipeline & GitHub Webhooks
+
+https://create-react-app.dev/docs/running-tests#continuous-integration
+
+Have GitHub check for linting and testing before allowing merge
+
+Maybe Look Into Sonar Cube?
 
 ## Step X - Update Readme
 
@@ -98,7 +118,9 @@ How to add colors to pallet (add it to the pallet, then edit them setter, then i
 
 ======
 
-add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger)
+add notes about lint scripts, prettier scripts, stylelint, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger). also note how to bypass pre commit hooks
+
+======
 
 code splitting. react router docs has one way to do it. create react app also has their way to do it using react router
 

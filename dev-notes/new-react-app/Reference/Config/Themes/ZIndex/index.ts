@@ -1,3 +1,3 @@
-export { default as defaultZIndex } from "./defaultZIndex";
+export { default as defaultZIndex } from "./DefaultZIndex";
 
-export type { ThemeZIndex } from "./types";
+export type { ThemeZIndex } from "./Types";

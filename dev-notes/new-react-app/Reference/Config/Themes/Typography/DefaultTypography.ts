@@ -1,4 +1,4 @@
-import { ThemeTypography } from "./types";
+import { ThemeTypography } from "./Types";
 
 // NOTE: The Roboto Font Families are in the '/src/Fonts/roboto-fonts.css' file
 // and are imported into the '/src/index.css'

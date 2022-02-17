@@ -1,4 +1,4 @@
-import { ThemeTransitions } from "./types";
+import { ThemeTransitions } from "./Types";
 
 const defaultTransitions: ThemeTransitions = {
   easing: {

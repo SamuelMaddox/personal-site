@@ -1,4 +1,4 @@
-import { ThemePaletteGray } from "./types";
+import { ThemePaletteGray } from "./Types";
 
 const lightToDark: ThemePaletteGray = {
   gray1: "#f5f5f5",

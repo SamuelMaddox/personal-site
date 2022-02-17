@@ -1,10 +1,10 @@
-export { default as lightPalette } from "./lightPalette";
-export { default as darkPalette } from "./darkPalette";
+export { default as lightPalette } from "./LightPalette";
+export { default as darkPalette } from "./DarkPalette";
 
 export type {
   ThemePaletteColor,
   ThemePaletteText,
   ThemePalette,
-} from "./types";
+} from "./Types";
 
 export type { ThemePaletteGray } from "./Gray";
