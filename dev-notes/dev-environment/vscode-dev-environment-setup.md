@@ -41,6 +41,7 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "files.eol": "\n",
+  "html.autoCreateQuotes": false,
   "diffEditor.renderSideBySide": true,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.fontFamily": "MesloLGS NF",
@@ -150,12 +151,12 @@
 
 ## VS Code Extensions
 
-- Auto Close Tag
 - AWS Toolkit
 - ESLint
 - Git Graph
 - GitHub Pull Requests and Issues
 - GitLens
+- Live Server
 - Live Share
 - Markdown All in One
 - markdownlint
@@ -165,6 +166,7 @@
 - Remote - WSL
 - Stylelint
 - TODO Highlight
+- vscode-styled-components
 - YAML
 
 # Setup Terminal
