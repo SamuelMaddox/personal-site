@@ -168,9 +168,9 @@ If NOT using TypeScript:
 
 Then, update the `rules` section to contain the following:
 
-> NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we supress the `"react/react-in-jsx-scope"` rule.
+> NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we suppress the `"react/react-in-jsx-scope"` rule.
 
-> NOTE: If using Typescript the eslint `"no-sahdow"` will need disabled as it can report incorrect errors. it will be replaced by the `"@typescript-eslint/no-shadow"` rule.
+> NOTE: If using Typescript the eslint `"no-shadow"` will need disabled as it can report incorrect errors. it will be replaced by the `"@typescript-eslint/no-shadow"` rule.
 
 If Using TypeScript:
 
@@ -189,6 +189,7 @@ If Using TypeScript:
       }
     ],
     "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
     "react/jsx-filename-extension": [
       "error",
       {
@@ -197,6 +198,7 @@ If Using TypeScript:
       }
     ],
     "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"]
   },
@@ -212,6 +214,7 @@ If NOT using TypeScript:
   "rules": {
     ...
     "import/prefer-default-export": "off",
+    "import/no-default-export": "error",
     "react/react-in-jsx-scope": "off"
   }
   ...
@@ -325,7 +328,7 @@ Temporarily add a `console.log('Hello')` to the `/src/index.tsx` file. Then run 
   7:1  warning  Unexpected console statement  no-console
 ```
 
-> NOTE: If you're using VSCode we recomend looking for the ESLint, Prettier, and Stylelint extensions
+> NOTE: If you're using VSCode we recommend looking for the ESLint, Prettier, and Stylelint extensions
 
 ## Step 5-9 - Fix "Couldn't find config **\_\_**" bug
 

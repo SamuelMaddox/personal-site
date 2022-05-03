@@ -18,15 +18,21 @@ https://create-react-app.dev/docs/debugging-tests#debugging-tests-in-visual-stud
 
 testing.
 
+how to use react testing library. create example tests
+
+how to test pages using helmet to seat headers?
+
+add mock service worker (msw) to mock APIs
+
 test coverage reporting = yarn test -- --coverage (is there a better way to show this? should this be a script in package json and added to setup documentation? I think this creates a coverage directory in the project that is ignored by git, that contains html file to view coverage. I did add a script for coverage in package.json all this needs covered in project readme)
 
 https://create-react-app.dev/docs/running-tests#coverage-reporting
 
+look at testing in storybook https://storybook.js.org/docs/react/writing-tests/interaction-testing
+
+import stories in jest testing: https://storybook.js.org/addons/@storybook/testing-react
+
 ## Step X - CSS Reset & Add Theme
-
-- css modules https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
-
-(This needs tested). The Contains Attribute Selector `div[class*="post-"]` might work to style child components.
 
 dark/light mode 3 options, (browser setting | light | dark)
 
@@ -44,6 +50,10 @@ google material icons download
 
 focusable styles based on slack https://codepen.io/zellwk/pen/JjPywVx
 
+=============
+
+CSS Varibles created for the them might not actually be needed sincing swtiching to styled components. might be able to pull directly from them context
+
 ## Step X - Update manifest.json & Meta tags & Title tag
 
 Replace values in `./public/manifest.json` `./public/index.html` to reflect the app we're building. Also replace the logos & favicon images found in `./public`
@@ -53,6 +63,8 @@ https://developers.google.com/web/fundamentals/web-app-manifest/
 ## Step X - Storybook
 
 https://storybook.js.org/
+
+look into story book testing section of the documentation
 
 ## Step X - Implement Auth
 
@@ -65,6 +77,8 @@ https://create-react-app.dev/docs/running-tests#continuous-integration
 Have GitHub check for linting and testing before allowing merge
 
 Maybe Look Into Sonar Cube?
+
+Look into adding Visual Tests to storybooking https://storybook.js.org/docs/react/writing-tests/visual-testing.
 
 ## Step X - Update Readme
 
@@ -86,11 +100,13 @@ https://create-react-app.dev/docs/using-https-in-development
 
 ======
 
-notes about environment variables and css modules
+CSS Variables and discuss themes
+
+======
+
+notes about environment variables
 
 https://create-react-app.dev/docs/adding-custom-environment-variables/
-
-https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
 
 ======
 
@@ -119,6 +135,10 @@ How to add colors to pallet (add it to the pallet, then edit them setter, then i
 ======
 
 add notes about lint scripts, prettier scripts, stylelint, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger). also note how to bypass pre commit hooks
+
+======
+
+Talk About Story Book
 
 ======
 
@@ -188,7 +208,7 @@ Warning: Failed prop type: Invalid prop `id` of type `number` supplied to `Table
 | Large Tablet | 1024 x 1366 |
 | Laptop       | 1280 x 720  |
 | Desktop      | 1920 x 1080 |
-| QHD          | 3440 x 1440 |
+| QHD          | 2560 x 1440 |
 
 ### Font Size Rem Reference Table
 

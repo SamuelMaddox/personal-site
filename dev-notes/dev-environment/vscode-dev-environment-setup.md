@@ -1,17 +1,14 @@
 # Local Dev Environment Setup <!-- omit in toc -->
 
+- [Mac Fix Home & End Keys](#mac-fix-home--end-keys)
 - [Setup VS Code](#setup-vs-code)
   - [VS Code Settings](#vs-code-settings)
   - [VS Code Extensions](#vs-code-extensions)
 - [Setup Terminal](#setup-terminal)
-  - [Step 0 - Setup WSL & Windows Terminal](#step-0---setup-wsl--windows-terminal)
-    - [0-1 Install WSL 1](#0-1-install-wsl-1)
-    - [0-2 Upgrade to WSL 2](#0-2-upgrade-to-wsl-2)
-    - [0-3 Download the Linux Kernel Update Package](#0-3-download-the-linux-kernel-update-package)
-    - [0-4 Set WSL 2 as Your Default Version](#0-4-set-wsl-2-as-your-default-version)
-    - [0-5 Install Your Linux Distribution of Choice](#0-5-install-your-linux-distribution-of-choice)
-    - [0-6 Install Windows Terminal](#0-6-install-windows-terminal)
-    - [0-7 Change the Default Profile](#0-7-change-the-default-profile)
+  - [Step 0 Setup WSL & Windows Terminal](#step-0-setup-wsl--windows-terminal)
+    - [Step 0-1 Setup WSL](#step-0-1-setup-wsl)
+    - [Step 0-2 Install Windows Terminal](#step-0-2-install-windows-terminal)
+    - [Step 0-3 Change the Default Profile](#step-0-3-change-the-default-profile)
   - [Step 1 - Add Brogrammer Color Theme](#step-1---add-brogrammer-color-theme)
     - [Step 1a - Instructions for Windows Terminal](#step-1a---instructions-for-windows-terminal)
     - [Step 1b - Instructions for Mac Terminal](#step-1b---instructions-for-mac-terminal)
@@ -20,10 +17,39 @@
     - [Step 2b - Instructions for Mac Terminal](#step-2b---instructions-for-mac-terminal)
   - [Step 3 - Install Powerlevel10k Plugin](#step-3---install-powerlevel10k-plugin)
   - [Step 4 - Use ZSH Terminal in VS Code](#step-4---use-zsh-terminal-in-vs-code)
+  - [Step 5 - Install Node Version Manager](#step-5---install-node-version-manager)
 
-# Setup VS Code
+## Mac Fix Home & End Keys
 
-## VS Code Settings
+Navigate to `~/Library` and creat a new folder called `KeyBindings`. Navigate into the `~/Library/KeyBindings` folder and create a new file called `DefaultKeyBinding.dict`. Then add the the following to that file:
+
+```txt
+{
+/* Remap Home / End keys */
+/* Home Button*/
+"\UF729" = "moveToBeginningOfLine:";
+/* End Button */
+"\UF72B" = "moveToEndOfLine:";
+/* Shift + Home Button */
+"$\UF729" = "moveToBeginningOfLineAndModifySelection:";
+/* Shift + End Button */
+"$\UF72B" = "moveToEndOfLineAndModifySelection:";
+/* Ctrl + Home Button */
+"^\UF729" = "moveToBeginningOfDocument:";
+/* Ctrl + End Button */
+"^\UF72B" = "moveToEndOfDocument:";
+ /* Shift + Ctrl + Home Button */
+"$^\UF729" = "moveToBeginningOfDocumentAndModifySelection:";
+/* Shift + Ctrl + End Button*/
+"$^\UF72B" = "moveToEndOfDocumentAndModifySelection:";
+}
+```
+
+Save the file and restart your mac. The home and end keys should now work as expected.
+
+## Setup VS Code
+
+### VS Code Settings
 
 ```json
 {
@@ -95,7 +121,7 @@
     "!Or mapping",
     "!Or sequence",
     "!FindInMap scalar",
-    "!FindInMap mappping",
+    "!FindInMap mapping",
     "!FindInMap sequence",
     "!Base64 scalar",
     "!Base64 mapping",
@@ -149,15 +175,16 @@
 }
 ```
 
-## VS Code Extensions
+### VS Code Extensions
 
 - AWS Toolkit
+- Code Spell Checker
 - ESLint
 - Git Graph
 - GitHub Pull Requests and Issues
 - GitLens
 - Live Server
-- Live Share
+- Live Share Extension Pack
 - Markdown All in One
 - markdownlint
 - npm
@@ -166,94 +193,61 @@
 - Remote - WSL
 - Stylelint
 - TODO Highlight
-- vscode-styled-components
+- vscode-styled-components (Look for the official blue badge by the author Stylelint)
 - YAML
 
-# Setup Terminal
+## Setup Terminal
 
-## Step 0 - Setup WSL & Windows Terminal
+### Step 0 Setup WSL & Windows Terminal
 
-⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+#### Step 0-1 Setup WSL
 
-IMPORTANT!!!! WSL is now a Windows 11 app. This part of the guide may have changed
+> Instructions for WSL installation can be found at <https://docs.microsoft.com/en-us/windows/wsl/install>.
 
-⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
+In an Windows Command Prompt ran as admin, run the following command:
 
-> NOTE: If you're not on Windows continue to Step 1
->
-> For more information about WSL visit [Windows Subsystem for Linux Installation Guide for Windows 10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
->
-> For more information about Windows Terminal Visit [What is Windows Terminal?](https://docs.microsoft.com/en-us/windows/terminal/)
-
-### 0-1 Install WSL 1
-
-Open PowerShell as Administrator and run:
-
-```powershell
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```console
+wsl --install -d Debian
 ```
 
-### 0-2 Upgrade to WSL 2
+To confirm the WSL version is version 2, restart your computer and then run the following command:
 
-Before installing WSL 2, you must enable the Virtual Machine Platform optional feature.
-
-```powershell
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```console
+wsl --status
 ```
 
-Restart your machine to complete the WSL install and update to WSL 2.
-
-### 0-3 Download the Linux Kernel Update Package
-
-Download and run the following package: <https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi>
-
-### 0-4 Set WSL 2 as Your Default Version
-
-Open PowerShell and run this command to set WSL 2 as the default version when installing a new Linux distribution
-
-```powershell
-wsl --set-default-version 2
-```
-
-### 0-5 Install Your Linux Distribution of Choice
-
-Open the Microsoft Store and select your favorite Linux distribution (I prefer [Debian](https://www.microsoft.com/en-us/p/debian/9msvkqc78pk6?rtc=1&activetab=pivot:overviewtab)). Once the distribution is installed open it up. You'll be asked to wait for a minute or two for files to de-compress and be stored on your PC. All future launches should take less than a second. You will then need to create a user account and password for your new Linux distribution.
-
-CONGRATULATIONS! You've successfully installed and set up a Linux distribution that is completely integrated with your Windows operating system!
-
-### 0-6 Install Windows Terminal
+#### Step 0-2 Install Windows Terminal
 
 Windows Terminal enables multiple tabs (quickly switch between multiple Linux command lines, Windows Command Prompt, PowerShell, Azure CLI, etc), create custom key bindings (shortcut keys for opening or closing tabs, copy+paste, etc.), use the search feature, and custom themes (color schemes, font styles and sizes, background image/blur/transparency)
 
 You can install Windows Terminal from the Microsoft Store: [Windows Terminal](https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&activetab=pivot:overviewtab).
 
-### 0-7 Change the Default Profile
+#### Step 0-3 Change the Default Profile
 
-Open Windows Terminal. Click on the down caret at the top and select settings. This will open a `settings.json` file. In that file look for the `Profiles.list` array. In that array find the profile object associated with the Linux distribution you downloaded. Copy the the value from the `guid` property and paste it as the value for the `defaultProfile` property.
+Open Windows Terminal. Click on the down caret at the top and select settings.Change the default profile to `Debian`.
+Also set the Default terminal application to `Windows Terminal`. Then click the Save button in the bottom right.
 
-## Step 1 - Add Brogrammer Color Theme
+### Step 1 - Add Brogrammer Color Theme
 
-### Step 1a - Instructions for Windows Terminal
+#### Step 1a - Instructions for Windows Terminal
 
-> Example `settings.json` file for Windows Terminal can be found at [./windows-terminal-settings.json](./windows-terminal-settings.json)
-
-Open Windows Terminal. Click on the down caret at the top and select settings. This will open a `settings.json` file. In that file look for the `Profiles.list` array and find the profile object associated with the Linux distribution you downloaded. Add the following propertys and value to the object:
+Open Windows Terminal. Click on the down caret at the top and select settings. Then click on the `Open JSON File` button in the bottom left. In that file look for the `Profiles.list` array and find the profile object where `"name": "Debian"`. Add the following Properties and value to the object:
 
 ```json
-"cursorShape" : "filledBox"
 "colorScheme" : "Brogrammer"
+"cursorShape" : "filledBox"
 ```
 
 The profile be similiar to the following example:
 
 ```json
 {
-    "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-    "hidden": false,
-    "name": "Debian",
-    "source": "Windows.Terminal.Wsl",
-    "cursorShape": "filledBox",
-    "colorScheme" : "Brogrammer"
+  "colorScheme" : "Brogrammer",
+  "cursorShape" : "filledBox",
+  "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+  "hidden": false,
+  "name": "Debian",
+  "source": "Windows.Terminal.Wsl"
 },
 ```
 
@@ -288,17 +282,17 @@ While still in the `settings.json` file find the `schemes` array and add the fol
 }
 ```
 
-### Step 1b - Instructions for Mac Terminal
+#### Step 1b - Instructions for Mac Terminal
 
 Go to _Apple Terminal → Preferences → Profiles → Gear Icon → Import_. Import the file located at [./brogrammer.terminal](./brogrammer.terminal)
 
 Then update the `selection` color for the profile to `#45A2D2`
 
-## Step 2 - Install Oh My Zsh
+### Step 2 - Install Oh My Zsh
 
 > NOTE: Go to <https://ohmyz.sh> for more information on Oh My Zsh
 
-### Step 2a - Instructions for Windows Terminal
+#### Step 2a - Instructions for Windows Terminal
 
 In the Windows Terminal Linux shell enter the following commands:
 
@@ -309,14 +303,14 @@ sudo apt-get install vim curl git zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. One such alias may be similiar to the following; which should be added to the `~/.zshrc` file:
+For Windows Terminal it may be useful to add a few aliases after installing Oh My Zsh. One such alias may be similar to the following; which should be added to the `~/.zshrc` file:
 
 ```txt
 # Navigation Aliases
 alias winhome="cd /mnt/c/Users/Samuel"
 ```
 
-### Step 2b - Instructions for Mac Terminal
+#### Step 2b - Instructions for Mac Terminal
 
 In the Mac Terminal enter the following command:
 
@@ -324,13 +318,13 @@ In the Mac Terminal enter the following command:
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-## Step 3 - Install Powerlevel10k Plugin
+### Step 3 - Install Powerlevel10k Plugin
 
 Follow the guide at <https://github.com/romkatv/powerlevel10k>
 
 > NOTE: Read instructions in the above guide all the way through for each step. It is easy to skip the updating of the terminal's profile font, and setting ZSH_THEME="powerlevel10k/powerlevel10k" in `~/.zshrc`.
 >
-> NOTE: For Windows Terminal go to settings and add the `fontFace` property to the profile object associated with the Linux distribution you downloaded. More information can be found at <https://docs.microsoft.com/en-us/windows/terminal/customize-settings/profile-settings#font-face>
+> NOTE: For Windows Terminal go to settings -> Debian -> Appearance and change the the font face to the the powerlevel10k instructions said to download.
 
 When running the Powerlevel10k config use the following styles:
 
@@ -352,10 +346,14 @@ Enable Transient Prompt = No
 Instant Prompt Mode = Verbose
 ```
 
-## Step 4 - Use ZSH Terminal in VS Code
+### Step 4 - Use ZSH Terminal in VS Code
 
-> NOTE: This applies only for Windows 10
+> NOTE: This applies only for Windows 10/11
 
 The `Remote - WSL` extension for vscode that allows VS Code’s UI to run on Windows, while all the commands, extensions, and even the terminal, run on Linux. For more information for how to use `Remote - WSL` read the extensions documentation.
 
 > NOTE: All VS Code extensions will have to be installed for WSL. This is very easy to do. Assuming the `Remote - WSL` is installed and you're running VS Code in WSL mode then simply visit the Extensions tab on the left and click the install buttons.
+
+### Step 5 - Install Node Version Manager
+
+Follow the guide at https://github.com/nvm-sh/nvm

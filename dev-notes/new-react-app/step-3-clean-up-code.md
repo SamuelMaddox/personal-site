@@ -5,7 +5,7 @@
 > NOTE: As of React 17 the new JSX transform will automatically import the necessary react/jsx-runtime functions, React will no longer need to be in scope when you use JSX. This is why we remove `import React from 'react'`
 
 - In `/public/index.html` remove comments.
-- In `/src/App.css` remove all styles and add the comment `/* Save File For Later Use */`.
+- Delete `/src/App.css`.
 - In `/src/App.js`
 
   - Rename file to `App.jsx` or `App.tsx`.

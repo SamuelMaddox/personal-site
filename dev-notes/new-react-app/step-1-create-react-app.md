@@ -2,7 +2,7 @@
 
 > Create React App Instructions can be found at [https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
 
-Use the following command to create a react app that uses TypeScript (if you don't want to use TypeScript than ommit `--template typescript` from the command):
+Use the following command to create a react app that uses TypeScript (if you don't want to use TypeScript than omit `--template typescript` from the command):
 
 ```shell
 yarn create react-app my-app --template typescript

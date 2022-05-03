@@ -10,218 +10,130 @@ In the project add folders to match the following file structure:
 
 ```txt
 📁src
-|   📁API
-|   |   📁Common
-|   |   |   📄FirstCommonAPI.test.ts
-|   |   |   📄FirstCommonAPI.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📁Auth
-|   |   |   📄AuthAPI.test.ts
-|   |   |   📄AuthAPI.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📄index.ts
-|   |   📄Types.ts
-|   📁Components
-|   |   📁FirstComponent
-|   |   |   📄index.ts
-|   |   |   📄FirstComponent.test.tsx
-|   |   |   📄FirstComponent.tsx
-|   |   |   📄FirstComponent.module.css
-|   |   |   📄Types.ts
-|   |   📄index.ts
-|   |   📄Types.ts
-|   📁Config
-|   |   📁FirstCategoryConfig
-|   |   |   📄index.ts
-|   |   |   📄OneFirstCategoryConfig.ts
-|   |   |   📄TwoFirstCategoryConfig.ts
-|   |   |   📄Types.ts
-|   |   📄index.ts
-|   |   📄LocalConfig.ts
-|   |   📄DevelopConfig.ts
-|   |   📄TestConfig.ts
-|   |   📄ProdConfig.ts
-|   |   📄Types.ts
-|   📁Contexts
-|   |   📁Common
-|   |   |   📄firstCommonContext.test.ts
-|   |   |   📄firstCommonContext.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📁Auth
-|   |   |   📄AuthContext.test.ts
-|   |   |   📄AuthContext.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📄index.ts
-|   |   📄Types.ts
-|   📁Font
-|   |   📁FontName
-|   |   |   📄FontName-Regular.ttf
-|   |   |   📄FontName-Italic.ttf
-|   |   |   📄FontName-Bold.ttf
-|   |   |   📄FontName-BoldItalic.ttf
-|   |   📄FontName.css
-|   📁Hooks
-|   |   📁Common
-|   |   |   📄FirstCommonHook.test.ts
-|   |   |   📄FirstCommonHook.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📁Auth
-|   |   |   📄AuthOneHook.test.ts
-|   |   |   📄AuthOneHook.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📄index.ts
-|   |   📄Types.ts
-|   📁Modules
-|   |   📁Common
-|   |   |   📁MainHeader
-|   |   |   |   📁MainNavComponent
-|   |   |   |   |   📄index.ts
-|   |   |   |   |   📄MainNavComponent.test.tsx
-|   |   |   |   |   📄MainNavComponent.tsx
-|   |   |   |   |   📄MainNavComponent.module.css
-|   |   |   |   |   📄Types.ts
-|   |   |   |   📄index.ts
-|   |   |   |   📄MainHeaderModule.test.tsx
-|   |   |   |   📄MainHeaderModule.tsx
-|   |   |   |   📄MainHeaderModule.module.css
-|   |   |   |   📄Types.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📁Auth
-|   |   |   📁LoginForm
-|   |   |   |   📁FirstComponent
-|   |   |   |   |   📄index.ts
-|   |   |   |   |   📄FirstComponent.test.tsx
-|   |   |   |   |   📄FirstComponent.tsx
-|   |   |   |   |   📄FirstComponent.module.css
-|   |   |   |   |   📄Types.ts
-|   |   |   |   📄index.ts
-|   |   |   |   📄LoginModule.test.tsx
-|   |   |   |   📄LoginModule.tsx
-|   |   |   |   📄LoginModule.module.css
-|   |   |   |   📄Types.ts
-|   |   |   📁CreateAccountForm
-|   |   |   |   📁FirstComponent
-|   |   |   |   |   📄index.ts
-|   |   |   |   |   📄FirstComponent.test.tsx
-|   |   |   |   |   📄FirstComponent.tsx
-|   |   |   |   |   📄FirstComponent.module.css
-|   |   |   |   |   📄Types.ts
-|   |   |   |   📄index.ts
-|   |   |   |   📄CreateAccountModule.test.tsx
-|   |   |   |   📄CreateAccountModule.tsx
-|   |   |   |   📄CreateAccountModule.module.css
-|   |   |   |   📄Types.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📄index.ts
-|   |   📄Types.ts
-|   📁Pages
-|   |   📁Common
-|   |   |   📁ForbiddenPage
-|   |   |   |   📄index.ts
-|   |   |   |   📄ForbiddenPage.test.tsx
-|   |   |   |   📄ForbiddenPage.tsx
-|   |   |   |   📄ForbiddenPage.module.css
-|   |   |   |   📄Types.ts
-|   |   |   📁NotFoundPage
-|   |   |   |   📄index.ts
-|   |   |   |   📄NotFoundPage.test.tsx
-|   |   |   |   📄NotFoundPage.tsx
-|   |   |   |   📄NotFoundPage.module.css
-|   |   |   |   📄Types.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📁FirstGroup
-|   |   |   📁FirstPage
-|   |   |   |   📄index.ts
-|   |   |   |   📄FirstPage.test.tsx
-|   |   |   |   📄FirstPage.tsx
-|   |   |   |   📄FirstPage.module.css
-|   |   |   |   📄Types.ts
-|   |   |   📄index.ts
-|   |   |   📄Types.ts
-|   |   📄MainLayout.test.tsx
-|   |   📄MainLayout.tsx
-|   |   📄index.ts
-|   |   📄Types.ts
-|   📁GlobalTypes
-|   |   📁GroupOne
-|   |   |   📁Classes
-|   |   |   |   📁FirstClassType
-|   |   |   |   |   📄index.ts
-|   |   |   |   |   📄FirstType.test.ts
-|   |   |   |   |   📄FirstClassType.ts
-|   |   |   📁Interfaces
-|   |   |   |   📁FirstInterfaceType
-|   |   |   |   |   📄index.ts
-|   |   |   |   |   📄FirstInterfaceType.ts
-|   |   |   📄index.ts
-|   |   📄index.ts
-|   📁Utils
-|   |   📁FirstUtil
-|   |   |   📄index.ts
-|   |   |   📄firstUtil.test.ts
-|   |   |   📄firstUtil.ts
-|   |   📄index.ts
-|   |   📄timeConstants.ts
-|   |   📄Types.ts
-|   📄App.css
-|   📄App.test.tsx
-|   📄App.tsx
-|   📄index.css
-|   📄index.tsx
+================================================================================
+| 📁API
+| | 📁FirstAPI
+| | | 📄FirstAPI.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Components
+| | 📁FirstComponent
+| | | 📁Assets
+| | | | 📄icon.svg
+| | 📄FirstComponent.test.tsx
+| | 📄FirstComponent.tsx
+| | 📄FirstComponent.styled.ts
+| | 📄index.ts
+| | 📄Types.ts
+================================================================================
+| 📁Config
+| | 📁FirstCategoryConfig
+| | | 📄OneFirstCategoryConfig.ts
+| | | 📄TwoFirstCategoryConfig.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Contexts
+| | 📁FirstContext
+| | | 📄firstContext.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Font
+| | 📁FontName
+| | | 📄FontNameRegular.ttf
+| | | 📄FontNameItalic.ttf
+| | | 📄FontNameBold.ttf
+| | | 📄FontNameBoldItalic.ttf
+| | 📄FontName.css
+================================================================================
+| 📁Hooks
+| | 📁FirstHook
+| | | 📄FirstHook.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Modules
+| | 📁Layout
+| | | 📁MainHeader
+| | | | 📁Assets
+| | | | | 📄pic.png
+| | | | 📁MainNav
+| | | | | 📄MainNav.test.tsx
+| | | | | 📄MainNav.tsx
+| | | | | 📄MainNav.styled.ts
+| | | | | 📄index.ts
+| | | | | 📄Types.ts
+| | | | 📄MainHeader.test.tsx
+| | | | 📄MainHeader.tsx
+| | | | 📄MainHeader.styled.ts
+| | | | 📄index.ts
+| | | | 📄Types.ts
+================================================================================
+| 📁Layouts
+| | 📁MainLayout
+| | | 📄MainLayout.test.tsx
+| | | 📄MainLayout.tsx
+| | | 📄MainLayout.styled.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Pages
+| | 📁Common
+| | | 📁HomePage
+| | | | 📁Assets
+| | | | | 📄pic.png
+| | | | 📄HomePage.test.tsx
+| | | | 📄HomePage.tsx
+| | | | 📄HomePage.styled.ts
+| | | | 📄index.ts
+| | | | 📄Types.ts
+================================================================================
+| 📁SharedAssets
+| | 📁GroupOne
+| | | 📄pic.png
+================================================================================
+| 📁Types
+| | 📁GroupOne
+| | | 📁Classes
+| | | | 📄FirstClassType.ts
+| | | 📁Enums
+| | | | 📄FirstEnumType.ts
+| | | 📁Interfaces
+| | | | 📄FirstInterfaceType.ts
+================================================================================
+| 📁Utils
+| | 📁FirstUtil.ts
+| | | 📄FirstUtil.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+| | 📄TimeConstants.ts
+| 📄App.test.tsx
+| 📄App.tsx
+| 📄index.css
+| 📄index.tsx
 ```
 
 ## Step 8-2 - File Structure and Naming Conventions Notes
 
-- Folders Files in `/src` should use `PascalCase` for file names except for the following:
+- Folders & Files in `/src` should use `PascalCase` for file names except for the following:
 
   - `/src/**/index.ext`
   - `/src/react-app-env.d.ts`
   - `/src/reportWebVitals.ts`
   - `/src/setupTests.ts`
 
-- Folders in `/public` should use `PascalCase`.
+- Folders in `/public` should use `PascalCase`, and files should use `camelCase`.
 
-- Files in `/public` should use `camelCase`.
+- The main code for a folder should be in a file sharing the same name as the folder. There should also be an `index.ts` file inside of that folder that is used to import then export the main code. This is to avoid having multiple files opened in your editor all named `index.ts` while also avoiding imports that look like `./ComponentName/ComponentName`.
 
-- The `index.ts` file inside of component folders is used to import then export the component from the `Component.tsx` file. This is to avoid having multiple files opened in your editor all named `index.tsx`.
+- The Top level `/Components` folder should be for generic, used anywhere components (Like`HamburgerButton`, `SideNav`, `Input`). `Components` can have other `Components` as children.
 
-- Modules are really big components made up of smaller components. The hope is that individual `Modules` should not be aware of other sibling `Modules` (though `Modules` can have other `Modules` as children). This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they woud handle the communcation across sibling `Modules`.
+- `Modules` are really big (epic or feature level) components made up of smaller components. `Modules` can have other `Modules` and `Components` as children. The hope is that individual `Modules` should not be aware of other sibling `Modules`. This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they would handle the communication across sibling `Modules`.
 
-- The top level `Components` folder should be for bare bones, used anywhere components (LIke`HamburgerButton`, `SideNav`, `Input`). `Modules` can contain sub components that can build upon these simple components.
-
-- Files belonging to the following category types (`API`, `Config`, `Context`, `Page`) should have their file name end with that category type. `Component` and `Hook` files should **NOT** follow this convention. `Module` files can go either way. Examples:
-
-  - `AuthAPI.ts`
-  - `AuthConfig.ts`
-  - `AuthContext.tsx`
-  - `LoginPage.tsx`
-
-- Types can be stored in a `Types.ts` file or in a `Types` folder with an `index.ts` file depending on complexity. `Types` folders should grow to resemble the organization of the `/src/GlobalTypes` folder as more types in are defined. These files and folders should defined be defined in the location they are used. If they are used in multiple places they should be defined according to the preference order listed below and then exported (see the `./Reference/Config` directory for an example). If it feels like a type has a global scope then it can be defined in the `/src/GlobalTypes` directory.
-
-  1. 📁API
-  2. 📁Config
-  3. 📁Context
-  4. 📁Hooks
-  5. 📁Modules
-  6. 📁Components
-  7. 📁Pages
-  8. 📁Types
+- Types should be defined in the `/src/Types` directory. Exception, Styled Component Types can be saved in the same file as the styles are.
 
 ## Step 8-3 - Add Skeleton Code
 
-- Copy the `./Reference/Pages` directory and paste it into the project as `./src/Pages`.
-
-- Copy the `./Reference/Modules` directory and paste it into the project as `./src/Modules`.
-
-- Copy the `./Reference/App.tsx` file and paste it into the project as `./src/App.tsx`.
-
-- Copy the `./Reference/App.test.tsx` file and paste it into the project as `./src/App.test.tsx`.
+- Copy the sample code found in `./Reference` into the projects `./src` directory.
