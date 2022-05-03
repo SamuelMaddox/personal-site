@@ -1,12 +1,8 @@
 import { render } from "@testing-library/react";
-import App from "./App";
-
-jest.mock("./Pages", () => ({
-  MainLayout: () => <div>Mock Main</div>,
-}));
+import { App } from "./App";
 
 describe("=== App ===", () => {
-  it("Renders without crashing", () => {
+  it("Should render without crashing", () => {
     render(<App />);
   });
 });

@@ -1,16 +1,6 @@
-import { ThemePaletteGray } from "./Gray";
-
-export interface ThemePaletteColor {
-  main: string;
-  alt1: string;
-  alt2: string;
-  contrastText?: string;
-}
-
-export interface ThemePaletteText {
-  primary: string;
-  secondary: string;
-}
+import { ThemePaletteColor } from "./ThemePaletteColor";
+import { ThemePaletteGray } from "./ThemePaletteGray";
+import { ThemePaletteText } from "./ThemePaletteText";
 
 export interface ThemePalette {
   background: ThemePaletteColor;

@@ -1,11 +1,13 @@
-import { Theme, ThemeMode, ThemeName } from "./types";
-import { darkPalette } from "./Palettes";
-import { whiteShadows } from "./Shadows";
-import { defaultTransitions } from "./Transitions";
-import { defaultTypography } from "./Typography";
-import { defaultZIndex } from "./ZIndex";
+import { Theme } from "../../Types/Config/Themes/Classes/Theme";
+import { ThemeMode } from "../../Types/Config/Themes/Enums/ThemeMode";
+import { ThemeName } from "../../Types/Config/Themes/Enums/ThemeName";
+import { darkPalette } from "./Palettes/DarkPalette";
+import { whiteShadows } from "./Shadows/WhiteShadows";
+import { defaultTransitions } from "./Transitions/DefaultTransitions";
+import { defaultTypography } from "./Typography/DefaultTypography";
+import { defaultZIndex } from "./ZIndex/DefaultZIndex";
 
-export default new Theme(ThemeName.darkTheme, ThemeMode.dark, {
+export const darkThemeConfig = new Theme(ThemeName.darkTheme, ThemeMode.dark, {
   borderRadius: 4,
   palette: darkPalette,
   shadows: whiteShadows,

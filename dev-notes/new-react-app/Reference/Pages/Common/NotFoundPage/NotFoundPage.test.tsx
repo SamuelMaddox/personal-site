@@ -1,10 +1,10 @@
 import { render } from "@testing-library/react";
 import { HelmetProvider } from "react-helmet-async";
 import { MemoryRouter } from "react-router-dom";
-import NotFoundPage from "./NotFoundPage";
+import { NotFoundPage } from "./NotFoundPage";
 
 describe("=== Pages => Common => NotFoundPage ===", () => {
-  it("Renders without crashing", () => {
+  it("Should Render without crashing", () => {
     render(
       <HelmetProvider>
         <MemoryRouter>

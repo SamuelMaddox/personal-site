@@ -1,7 +1,7 @@
-import { lightToDark } from "./Gray";
-import { ThemePalette } from "./Types";
+import { ThemePalette } from "../../../Types/Config/Themes/Interfaces/ThemePalette";
+import { lightToDark } from "./Gray/LightToDark";
 
-const lightPalette: ThemePalette = {
+export const lightPalette: ThemePalette = {
   background: {
     main: "#ffffff",
     alt1: "#eeeeee",
@@ -55,5 +55,3 @@ const lightPalette: ThemePalette = {
   },
   gray: lightToDark,
 };
-
-export default lightPalette;

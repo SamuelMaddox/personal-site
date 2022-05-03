@@ -1,12 +1,13 @@
-import { ThemeTypography } from "./Types";
-
 // NOTE: The Roboto Font Families are in the '/src/Fonts/roboto-fonts.css' file
+
+import { ThemeTypography } from "../../../Types/Config/Themes/Interfaces/ThemeTypography";
+
 // and are imported into the '/src/index.css'
 const PRIMARY_FONT_FAMILY = "'Roboto', sans-serif";
 const SECONDARY_FONT_FAMILY = "'Roboto Slab', serif";
 const MONO_FONT_FAMILY = "'Roboto Mono', monospace";
 
-const defaultTypography: ThemeTypography = {
+export const defaultTypography: ThemeTypography = {
   primaryFontFamily: PRIMARY_FONT_FAMILY,
   secondaryFontFamily: SECONDARY_FONT_FAMILY,
   monoFontFamily: MONO_FONT_FAMILY,
@@ -103,5 +104,3 @@ const defaultTypography: ThemeTypography = {
     letterSpacing: "normal",
   },
 };
-
-export default defaultTypography;

@@ -1,10 +1,9 @@
 import { ReactElement } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MainLayout } from "./Pages";
-import "./App.css";
+import { MainLayout } from "./Layouts/MainLayout";
 
-function App(): ReactElement {
+export function App(): ReactElement {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -15,5 +14,3 @@ function App(): ReactElement {
     </HelmetProvider>
   );
 }
-
-export default App;

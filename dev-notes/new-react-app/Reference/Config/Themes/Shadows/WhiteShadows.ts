@@ -1,6 +1,6 @@
-import { ThemeShadows } from ".";
+import { ThemeShadows } from "../../../Types/Config/Themes/Interfaces/ThemeShadows";
 
-const whiteShadows: ThemeShadows = {
+export const whiteShadows: ThemeShadows = {
   shadow0: "none",
   shadow1:
     "0px 2px 1px -1px rgba(255,255,255,0.2)," +
@@ -99,5 +99,3 @@ const whiteShadows: ThemeShadows = {
     "0px 24px 38px 3px rgba(255,255,255,0.14)," +
     "0px 9px 46px 8px rgba(255,255,255,0.12)",
 };
-
-export default whiteShadows;

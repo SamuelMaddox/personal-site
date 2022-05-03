@@ -1,10 +1,4 @@
-export interface ThemeTypographyGroup {
-  fontFamily: string;
-  fontWeight: string;
-  fontSize: string;
-  lineHeight: string;
-  letterSpacing: string;
-}
+import { ThemeTypographyGroup } from "./ThemeTypographyGroup";
 
 export interface ThemeTypography {
   htmlFontSize: string;

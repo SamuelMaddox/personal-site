@@ -1,27 +1,10 @@
-import { ThemePalette } from "./Palettes";
-import { ThemeShadows } from "./Shadows";
-import { ThemeTransitions } from "./Transitions";
-import { ThemeTypography } from "./Typography";
-import { ThemeZIndex } from "./ZIndex";
-
-export enum ThemeName {
-  lightTheme = "lightTheme",
-  darkTheme = "darkTheme",
-}
-
-export enum ThemeMode {
-  light,
-  dark,
-}
-
-export interface ThemeOpts {
-  borderRadius: number;
-  palette: ThemePalette;
-  shadows: ThemeShadows;
-  transitions: ThemeTransitions;
-  typography: ThemeTypography;
-  zIndex: ThemeZIndex;
-}
+import { ThemeMode } from "../Enums/ThemeMode";
+import { ThemeOpts } from "../Interfaces/ThemeOpts";
+import { ThemePalette } from "../Interfaces/ThemePalette";
+import { ThemeShadows } from "../Interfaces/ThemeShadows";
+import { ThemeTransitions } from "../Interfaces/ThemeTransitions";
+import { ThemeTypography } from "../Interfaces/ThemeTypography";
+import { ThemeZIndex } from "../Interfaces/ThemeZIndex";
 
 export class Theme {
   name: string;

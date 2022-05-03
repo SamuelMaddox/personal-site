@@ -1,6 +1,6 @@
-import { ThemeTransitions } from "./Types";
+import { ThemeTransitions } from "../../../Types/Config/Themes/Interfaces/ThemeTransitions";
 
-const defaultTransitions: ThemeTransitions = {
+export const defaultTransitions: ThemeTransitions = {
   easing: {
     easeInOut: "cubic-bezier(0.4, 0, 0.2, 1)",
     easeOut: "cubic-bezier(0.0, 0, 0.2, 1)",
@@ -17,5 +17,3 @@ const defaultTransitions: ThemeTransitions = {
     leavingScreen: 195,
   },
 };
-
-export default defaultTransitions;
