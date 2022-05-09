@@ -187,6 +187,7 @@ Save the file and restart your mac. The home and end keys should now work as exp
 - Live Share Extension Pack
 - Markdown All in One
 - markdownlint
+- Markdown Preview Github Styling
 - npm
 - open in browser
 - Prettier

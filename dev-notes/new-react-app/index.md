@@ -7,8 +7,6 @@
 - [Step X - Implement Auth](#step-x---implement-auth)
 - [Step X - Setup CI Pipeline & GitHub Webhooks](#step-x---setup-ci-pipeline--github-webhooks)
 - [Step X - Update Readme](#step-x---update-readme)
-  - [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
-  - [Font Size Rem Reference Table](#font-size-rem-reference-table)
 
 ============================
 
@@ -82,15 +80,9 @@ Look into adding Visual Tests to storybooking https://storybook.js.org/docs/reac
 
 ## Step X - Update Readme
 
-typescript cheat sheet https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example
-
 ======
 
 - report web vitals
-
-======
-
-File naming convention and project file structure
 
 ======
 
@@ -130,15 +122,15 @@ https://create-react-app.dev/docs/code-splitting
 
 ======
 
+include in readme recomended vscode extensions, such as eslint, prettier, vscode-styled-components, markdown all in one, markdown lint, stylelint, todo highlight, git graph
+
+======
+
 How to add colors to pallet (add it to the pallet, then edit them setter, then in css file initialize css variable with a gray scale value)
 
 ======
 
 add notes about lint scripts, prettier scripts, stylelint, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger). also note how to bypass pre commit hooks
-
-======
-
-Talk About Story Book
 
 ======
 
@@ -150,92 +142,12 @@ https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
 
 ======
 
-A JavaScript comment of `// prettier-ignore` will exclude the next node in the abstract syntax tree from formatting.
-
-For example:
-
-```js
-matrix(1, 0, 0, 0, 1, 0, 0, 0, 1);
-
-// prettier-ignore
-matrix(
-  1, 0, 0,
-  0, 1, 0,
-  0, 0, 1
-)
-```
-
-will be transformed to:
-
-```js
-matrix(1, 0, 0, 0, 1, 0, 0, 0, 1);
-
-// prettier-ignore
-matrix(
-  1, 0, 0,
-  0, 1, 0,
-  0, 0, 1
-)
-```
-
-you can bypase `pre-commit` hooks useing git `--no-verify` option. Ex:
-
-```shell
-`git commit -m "yolo" --no-verify`
-```
-
-======
-
 Typescript and PropTypes serve different purposes. Typescript validates types at compile time, whereas PropTypes are checked at runtime.
 
 Typescript is useful when you are writing code: it will warn you if you pass an argument of the wrong type to your React components, give you autocomplete for function calls, etc.
 
 PropTypes are useful when you test how the components interact with external data, for example when you load JSON from an API. PropTypes will help you debug (when in React's Development mode) why your component is failing by printing helpful messages like:
 
-```
+```txt
 Warning: Failed prop type: Invalid prop `id` of type `number` supplied to `Table`, expected `string`
 ```
-
-======
-
-### Screen Dimensions Reference Table
-
-| Name         | Dimensions  |
-| ------------ | ----------- |
-| Small Phone  | 375 x 667   |
-| Large Phone  | 428 x 926   |
-| Small Tablet | 768 x 1024  |
-| Large Tablet | 1024 x 1366 |
-| Laptop       | 1280 x 720  |
-| Desktop      | 1920 x 1080 |
-| QHD          | 2560 x 1440 |
-
-### Font Size Rem Reference Table
-
-https://grtcalculator.com/
-
-Rem Size = (Desired Font size) / (HTML Font Size)
-
-**Example:** Assuming an HTML font size of 16px, then `12px / 16px = 0.75rem`
-
-| REM Size | Pixel Size | Point Size |
-| -------- | ---------- | ---------- |
-| 0.75rem  | 12px       | 9pt        |
-| 0.875rem | 14px       | 11pt       |
-| 1.0rem   | 16px       | 12pt       |
-| 1.125rem | 18px       | 14pt       |
-| 1.25rem  | 20px       | 15pt       |
-| 1.375rem | 22px       | 17pt       |
-| 1.5rem   | 24px       | 18pt       |
-| 1.625rem | 26px       | 20pt       |
-| 1.75rem  | 28px       | 21pt       |
-| 1.875rem | 30px       | 23pt       |
-| 2.0rem   | 32px       | 24pt       |
-| 2.125rem | 34px       | 26pt       |
-| 2.25rem  | 36px       | 27pt       |
-| 2.375rem | 38px       | 29pt       |
-| 2.5rem   | 40px       | 30pt       |
-| 2.625rem | 42px       | 32pt       |
-| 2.75rem  | 44px       | 33pt       |
-| 2.875rem | 46px       | 35pt       |
-| 3.0rem   | 48px       | 36pt       |
