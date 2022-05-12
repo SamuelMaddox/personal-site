@@ -11,27 +11,34 @@
 - [Code Management](#code-management)
   - [Branch Naming Convention](#branch-naming-convention)
   - [Pull Request Checklist](#pull-request-checklist)
-- [CI/CD Pipeline](#cicd-pipeline)
-- [Debugging from VS Code](#debugging-from-vs-code)
+- [File Structure](#file-structure)
+  - [Sample File Structure](#sample-file-structure)
+  - [File Structure Rules & Conventions](#file-structure-rules--conventions)
 - [Testing](#testing)
 - [Pre-commit Hooks](#pre-commit-hooks)
   - [About Pre-commit Hooks](#about-pre-commit-hooks)
   - [Bypassing Pre-commit Hooks](#bypassing-pre-commit-hooks)
 - [ESLint and Prettier](#eslint-and-prettier)
   - [What is ESLint](#what-is-eslint)
-  - [ESLint Disable Conventions](#eslint-disable-conventions)
+  - [ESLint & Prettier Disable Conventions](#eslint--prettier-disable-conventions)
+  - [Eslint Ignore Node](#eslint-ignore-node)
   - [What Is Prettier](#what-is-prettier)
   - [Prettier Ignore Node](#prettier-ignore-node)
 - [Story Book](#story-book)
-- [Styled Components](#styled-components)
+- [Material UI](#material-ui)
+  - [Material UI Styles](#material-ui-styles)
+  - [Material UI Themes](#material-ui-themes)
+- [Emotion React CSS](#emotion-react-css)
 - [React Router](#react-router)
 - [Helmet](#helmet)
-- [Theme Config](#theme-config)
-- [File Structure](#file-structure)
-- [Recommended VS Code Extensions](#recommended-vs-code-extensions)
-- [React TypeScript Cheat Sheet](#react-typescript-cheat-sheet)
-- [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
-- [Font Styling & REM Reference Table](#font-styling--rem-reference-table)
+- [Advance](#advance)
+  - [CI/CD Pipeline](#cicd-pipeline)
+  - [React TypeScript Cheat Sheet](#react-typescript-cheat-sheet)
+- [Extra Notes](#extra-notes)
+  - [Debugging from VS Code](#debugging-from-vs-code)
+  - [Recommended VS Code Extensions](#recommended-vs-code-extensions)
+  - [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
+  - [Font Styling & REM Reference Table](#font-styling--rem-reference-table)
 - [SCRUM Notes](#scrum-notes)
   - [Agile Manifesto](#agile-manifesto)
   - [Story Statuses](#story-statuses)
@@ -75,7 +82,7 @@ Open your web browser and go to [http://localhost:3000](http://localhost:3000) t
 
 ### Step 5 - Read the Documentation
 
-Be sure to read through the rest of this readme to understand all the tooling used to help developers build this application.
+Be sure to read through the rest of this readme to understand all the tooling used to help developers build this application and keep our codebase clean.
 
 ## Scripts
 
@@ -125,9 +132,8 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 
 ### Pull Request Checklist
 
-- [ ] Files follow the defined [File Structure](#file-structure).
-- [ ] New ESLint Disable comments follow the [ESLint Disable Conventions](#eslint-disable-conventions).
-- [ ] CSS styles are using values from the MUI Theme Config where possible (TODO: link to the MUI theme notes)
+- [ ] Story/Task acceptance criteria has been met.
+- [ ] Browser console is not displaying errors, warnings, or unnecessary console logs.
 - [ ] There is no commented out or unnecessary code.
 - [ ] Names are semantic and meaningful.
 - [ ] Code is clear and easy to understand.
@@ -138,19 +144,150 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
   - [ ] **Liskov Substitution Principle** - Every subclass or derived class should be substitutable for their base or parent class.
   - [ ] **Interface Segregation Principle** - A client should never be forced to implement an interface that it doesn’t use.
   - [ ] **Dependency Inversion Principle** - High-level module must not depend on the low-level module, but they should depend on abstractions.
-- [ ] Browser console is not displaying errors, warnings, or unnecessary console logs.
-- [ ] Linters are throwing no errors or warnings.
-- [ ] Prettier has been ran.
+- [ ] Files follow the defined [File Structure](#file-structure).
+- [ ] New ESLint Disable comments follow the [ESLint & Prettier Disable Conventions](#eslint--prettier-disable-conventions)
+- [ ] Modules/Components have [Story Book](#story-book) stories written.
+- [ ] CSS styles are defined using using [Material UI Styles](#material-ui-styles) or [Emotion](#emotion-react-css)
+- [ ] CSS styles are using values from the [Material UI Themes](#material-ui-themes) where possible
+- [ ] Internal inks are implemented using [React Router](#react-router)
+- [ ] Pages have [Helmet](#helmet) tags set
+- [ ] Tests are written to closely resemble how your web pages are interacted by the users.
+- [ ] Tests avoid testing implementation details.
 - [ ] Test coverage is above 80%.
-- [ ] Peer reviewed by at least 2 other developers
+- [ ] Linters are not throwing errors or warnings.
+- [ ] Prettier has been ran.
 
-## CI/CD Pipeline
+## File Structure
 
-TODO: See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sample File Structure
 
-## Debugging from VS Code
+```txt
+📁src
+================================================================================
+| 📁API
+| | 📁FirstAPI
+| | | 📄FirstAPI.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Components
+| | 📁FirstComponent
+| | | 📁Assets
+| | | | 📄icon.svg
+| | | 📁Utils
+| | | | 📄FirstUtil.ts
+| | 📄FirstComponent.test.tsx
+| | 📄FirstComponent.tsx
+| | 📄FirstComponent.styled.ts
+| | 📄index.ts
+| | 📄Types.ts
+================================================================================
+| 📁Config
+| | 📁FirstCategoryConfig
+| | | 📄OneFirstCategoryConfig.ts
+| | | 📄TwoFirstCategoryConfig.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Contexts
+| | 📁FirstContext
+| | | 📄firstContext.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Font
+| | 📁FontName
+| | | 📄FontNameRegular.ttf
+| | | 📄FontNameItalic.ttf
+| | | 📄FontNameBold.ttf
+| | | 📄FontNameBoldItalic.ttf
+| | 📄FontName.css
+================================================================================
+| 📁Hooks
+| | 📁FirstHook
+| | | 📁Utils
+| | | | 📄FirstUtil.ts
+| | | 📄FirstHook.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Layouts
+| | 📁MainLayout
+| | | 📄MainLayout.test.tsx
+| | | 📄MainLayout.tsx
+| | | 📄MainLayout.styled.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+================================================================================
+| 📁Modules
+| | 📁Layout
+| | | 📁MainHeader
+| | | | 📁Assets
+| | | | | 📄pic.png
+| | | | 📁Components
+| | | | | ...
+| | | | 📁Utils
+| | | | | 📄FirstUtil.ts
+| | | | 📄MainHeader.test.tsx
+| | | | 📄MainHeader.tsx
+| | | | 📄MainHeader.styled.ts
+| | | | 📄index.ts
+| | | | 📄Types.ts
+================================================================================
+| 📁Pages
+| | 📁Common
+| | | 📁HomePage
+| | | | 📁Assets
+| | | | | 📄pic.png
+| | | | 📄HomePage.test.tsx
+| | | | 📄HomePage.tsx
+| | | | 📄HomePage.styled.ts
+| | | | 📄index.ts
+| | | | 📄Types.ts
+================================================================================
+| 📁SharedAssets
+| | 📁GroupOne
+| | | 📄pic.png
+================================================================================
+| 📁Types
+| | 📁GroupOne
+| | | 📁Classes
+| | | | 📄FirstClassType.ts
+| | | 📁Enums
+| | | | 📄FirstEnumType.ts
+| | | 📁Interfaces
+| | | | 📄FirstInterfaceType.ts
+================================================================================
+| 📁Utils
+| | 📁FirstUtil.ts
+| | | 📄FirstUtil.ts
+| | | 📄index.ts
+| | | 📄Types.ts
+| | 📄TimeConstants.ts
+| 📄App.test.tsx
+| 📄App.tsx
+| 📄index.css
+| 📄index.tsx
+```
 
-TODO: Debugging from VS Code
+### File Structure Rules & Conventions
+
+- Folders & Files in `/src` should use `PascalCase` for file names except for the following:
+
+  - `/src/**/index.ext`
+  - `/src/react-app-env.d.ts`
+  - `/src/reportWebVitals.ts`
+  - `/src/setupTests.ts`
+
+- Folders in `/public` should use `PascalCase`, and files should use `camelCase`.
+
+- The main code for a folder should be in a file sharing the same name as the folder. There should also be an `index.ts` file inside of that folder that is used to import then export the main code. This is to avoid having multiple files opened in your editor all named `index.ts` while also avoiding imports that look like `./ComponentName/ComponentName`.
+
+- The top level `Components` folder should be for generic, used anywhere components (Like`HamburgerButton`, `SideNav`, `Input`). `Components` can have other `Components` as children.
+
+- The top level`Modules` are really big (epic or feature level) components made up of smaller components. `Modules` can have other `Modules` and `Components` as children. The hope is that individual `Modules` should not be aware of other sibling `Modules`. This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they would handle the communication across sibling `Modules`.
+
+- Types should be defined in the `/src/Types` directory. Exception, Styled Component Types can be saved in the same file as the styles are.
 
 ## Testing
 
@@ -178,7 +315,7 @@ you can bypass `pre-commit` hooks using the `--no-verify` option. Example:
 
 TODO: What is ESLint
 
-### ESLint Disable Conventions
+### ESLint & Prettier Disable Conventions
 
 Please follow these 2 conventions When disabling a line or block of code:
 
@@ -188,6 +325,8 @@ Please follow these 2 conventions When disabling a line or block of code:
 **Bad** = `/* eslint disable */`
 
 **Convention 2** - Provide a note explaining why the rule is disabled
+
+### Eslint Ignore Node
 
 To disable a line of code do the following:
 
@@ -244,37 +383,53 @@ This project uses Storybook to help isolate React Components for development. Se
 
 TODO: quick notes for how to run/use storybook
 
-TODO: notes on how to publish storybook as a static web application. https://storybook.js.org/docs/react/sharing/publish-storybook
+## Material UI
 
-## Styled Components
+TODO: General MUI notes
 
-TODO: Style Components
+### Material UI Styles
 
-## React Router
+TODO: Styles Notes
 
-TODO: React Router
-
-## Helmet
-
-TODO: Helmet
-
-## Theme Config
+### Material UI Themes
 
 TODO: Theme Config
 
-## File Structure
+## Emotion React CSS
 
-TODO: File Structure
+[See Emotion Documentation](https://emotion.sh/docs/introduction)
 
-## Recommended VS Code Extensions
+## React Router
 
-TODO: VS Code Extensions
+[See React Router Documentation](https://reactrouter.com/docs/en/v6)
 
-## React TypeScript Cheat Sheet
+## Helmet
+
+[See React Helmet Async Documentation](https://www.npmjs.com/package/react-helmet-async)
+
+## Advance
+
+### CI/CD Pipeline
+
+TODO: See the Create React App documentation about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+TODO: notes on how to publish storybook as a static web application. https://storybook.js.org/docs/react/sharing/publish-storybook
+
+### React TypeScript Cheat Sheet
 
 Here is a link to the [React TypeScript Cheat Sheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example)
 
-## Screen Dimensions Reference Table
+## Extra Notes
+
+### Debugging from VS Code
+
+TODO: Debugging from VS Code
+
+### Recommended VS Code Extensions
+
+TODO: VS Code Extensions
+
+### Screen Dimensions Reference Table
 
 | Name         | Dimensions  |
 | ------------ | ----------- |
@@ -286,7 +441,7 @@ Here is a link to the [React TypeScript Cheat Sheet](https://react-typescript-ch
 | Desktop      | 1920 x 1080 |
 | QHD          | 2560 x 1440 |
 
-## Font Styling & REM Reference Table
+### Font Styling & REM Reference Table
 
 Use the [Golden Ratio Typography Calculator](https://grtcalculator.com/) to get recommendations on line height and content width given a font size.
 

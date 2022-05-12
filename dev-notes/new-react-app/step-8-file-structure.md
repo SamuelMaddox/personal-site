@@ -21,6 +21,8 @@ In the project add folders to match the following file structure:
 | | 📁FirstComponent
 | | | 📁Assets
 | | | | 📄icon.svg
+| | | 📁Utils
+| | | | 📄FirstUtil.ts
 | | 📄FirstComponent.test.tsx
 | | 📄FirstComponent.tsx
 | | 📄FirstComponent.styled.ts
@@ -50,26 +52,11 @@ In the project add folders to match the following file structure:
 ================================================================================
 | 📁Hooks
 | | 📁FirstHook
+| | | 📁Utils
+| | | | 📄FirstUtil.ts
 | | | 📄FirstHook.ts
 | | | 📄index.ts
 | | | 📄Types.ts
-================================================================================
-| 📁Modules
-| | 📁Layout
-| | | 📁MainHeader
-| | | | 📁Assets
-| | | | | 📄pic.png
-| | | | 📁MainNav
-| | | | | 📄MainNav.test.tsx
-| | | | | 📄MainNav.tsx
-| | | | | 📄MainNav.styled.ts
-| | | | | 📄index.ts
-| | | | | 📄Types.ts
-| | | | 📄MainHeader.test.tsx
-| | | | 📄MainHeader.tsx
-| | | | 📄MainHeader.styled.ts
-| | | | 📄index.ts
-| | | | 📄Types.ts
 ================================================================================
 | 📁Layouts
 | | 📁MainLayout
@@ -78,6 +65,21 @@ In the project add folders to match the following file structure:
 | | | 📄MainLayout.styled.ts
 | | | 📄index.ts
 | | | 📄Types.ts
+================================================================================
+| 📁Modules
+| | 📁Layout
+| | | 📁MainHeader
+| | | | 📁Assets
+| | | | | 📄pic.png
+| | | | 📁Components
+| | | | | ...
+| | | | 📁Utils
+| | | | | 📄FirstUtil.ts
+| | | | 📄MainHeader.test.tsx
+| | | | 📄MainHeader.tsx
+| | | | 📄MainHeader.styled.ts
+| | | | 📄index.ts
+| | | | 📄Types.ts
 ================================================================================
 | 📁Pages
 | | 📁Common
@@ -128,9 +130,9 @@ In the project add folders to match the following file structure:
 
 - The main code for a folder should be in a file sharing the same name as the folder. There should also be an `index.ts` file inside of that folder that is used to import then export the main code. This is to avoid having multiple files opened in your editor all named `index.ts` while also avoiding imports that look like `./ComponentName/ComponentName`.
 
-- The Top level `/Components` folder should be for generic, used anywhere components (Like`HamburgerButton`, `SideNav`, `Input`). `Components` can have other `Components` as children.
+- The top level `Components` folder should be for generic, used anywhere components (Like`HamburgerButton`, `SideNav`, `Input`). `Components` can have other `Components` as children.
 
-- `Modules` are really big (epic or feature level) components made up of smaller components. `Modules` can have other `Modules` and `Components` as children. The hope is that individual `Modules` should not be aware of other sibling `Modules`. This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they would handle the communication across sibling `Modules`.
+- The top level `Modules` are really big (epic or feature level) components made up of smaller components. `Modules` can have other `Modules` and `Components` as children. The hope is that individual `Modules` should not be aware of other sibling `Modules`. This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they would handle the communication across sibling `Modules`.
 
 - Types should be defined in the `/src/Types` directory. Exception, Styled Component Types can be saved in the same file as the styles are.
 

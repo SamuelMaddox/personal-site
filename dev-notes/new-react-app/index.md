@@ -1,15 +1,43 @@
 # Setup New React App <!-- omit in toc -->
 
-- [Testing](#testing)
 - [Step X - Material UI](#step-x---material-ui)
 - [Step X - CSS Reset & Add Theme](#step-x---css-reset--add-theme)
-- [Step X - Update manifest.json & Meta tags & Title tag](#step-x---update-manifestjson--meta-tags--title-tag)
 - [Step X - Storybook](#step-x---storybook)
+- [Testing](#testing)
+- [Step X - Update manifest.json & Meta tags & Title tag](#step-x---update-manifestjson--meta-tags--title-tag)
 - [Step X - Implement Auth](#step-x---implement-auth)
 - [Step X - Setup CI Pipeline & GitHub Webhooks](#step-x---setup-ci-pipeline--github-webhooks)
 - [Step X - Update Readme](#step-x---update-readme)
 
 ============================
+
+## Step X - Material UI
+
+Review How To Guides: https://mui.com/material-ui/guides/api/
+
+This will probably replace CSS Reset and Theme
+
+Notes on how to install Material UI: https://mui.com/material-ui/getting-started/installation/. Also look at the Globals subsection under Usage https://mui.com/material-ui/getting-started/usage/
+
+I will need to look into MUI Icons. There are 3 options. Probably include notes on how to use in sample readme: https://mui.com/material-ui/icons/
+
+Include Notes on how to change/add themes, including adding custom fonts
+
+How to set MUI Link component globaly to work with react router and next.js routing: https://mui.com/material-ui/guides/routing/
+
+remove all mention of styled components in sample readme
+
+is there an emotion vscode extension similiar to styled components? all that documentation will need updated
+
+## Step X - CSS Reset & Add Theme
+
+dark/light mode 3 options, (browser setting | light | dark)
+
+## Step X - Storybook
+
+https://storybook.js.org/
+
+look into story book testing section of the documentation
 
 ## Testing
 
@@ -27,53 +55,13 @@ look at testing in storybook https://storybook.js.org/docs/react/writing-tests/i
 
 import stories in jest testing: https://storybook.js.org/addons/@storybook/testing-react
 
-## Step X - Material UI
-
-Review How To Guides: https://mui.com/material-ui/guides/api/
-
-This will probably replace CSS Reset and Theme
-
-Notes on how to install Material UI: https://mui.com/material-ui/getting-started/installation/. Also look at the Globals subsection under Usage https://mui.com/material-ui/getting-started/usage/
-
-I will need to look into MUI Icons. There are 3 options. Probably include notes on how to use in sample readme: https://mui.com/material-ui/icons/
-
-Include Notes on how to change/add themes
-
-How to set MUI Link component globaly to work with react router and next.js routing: https://mui.com/material-ui/guides/routing/
-
-## Step X - CSS Reset & Add Theme
-
-dark/light mode 3 options, (browser setting | light | dark)
-
-Styles for font family and typography https://elementor.com/blog/guide-to-web-typography/?utm_source=google&utm_medium=cpc&utm_campaign=10759652828&utm_term=&gclid=CjwKCAjwtfqKBhBoEiwAZuesiG9xJo96zZReEQlkU_eSr3F-PCxTeC_mgc5BU2tEypUj5xfWdczX7BoCwIsQAvD_BwE
-
-https://blog.bitsrc.io/3-ways-to-theme-react-components-9cfa631351e9
-
-https://material.io/design/color/the-color-system.html#color-theme-creation
-
-https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=F44336&secondary.color=FAFAFA
-
-https://mui.com/customization/default-theme/
-
-google material icons download
-
-focusable styles based on slack https://codepen.io/zellwk/pen/JjPywVx
-
-=============
-
-CSS Varibles created for the them might not actually be needed sincing swtiching to styled components. might be able to pull directly from them context
+Look into adding Visual Tests to storybooking https://storybook.js.org/docs/react/writing-tests/visual-testing.
 
 ## Step X - Update manifest.json & Meta tags & Title tag
 
 Replace values in `./public/manifest.json` `./public/index.html` to reflect the app we're building. Also replace the logos & favicon images found in `./public`
 
 https://developers.google.com/web/fundamentals/web-app-manifest/
-
-## Step X - Storybook
-
-https://storybook.js.org/
-
-look into story book testing section of the documentation
 
 ## Step X - Implement Auth
 
@@ -85,29 +73,29 @@ https://create-react-app.dev/docs/running-tests#continuous-integration
 
 Have GitHub check for linting and testing before allowing merge
 
-Maybe Look Into Sonar Cube?
-
-Look into adding Visual Tests to storybooking https://storybook.js.org/docs/react/writing-tests/visual-testing.
-
 Learn to Setup Sonar Qube
 
 (Combine sonar and eslint) https://docs.sonarqube.org/latest/analysis/languages/javascript/
 
+branch naming:
+
+- `main`
+- `hotfix-{version with patch number increased}`
+- `release-{version with max or minor number increased}`
+- `develop`
+- `feature-{id}-{name}`
+- `story-{id}-{name}`
+- `task-{id}-{name}`
+
+pipeline should auto update version number in package.json and tag the commit when merging release branches and hotfix branches into main. it can pull the version from the branch name, ex: `release-1.2.3`
+
+add notes on report web vitals https://create-react-app.dev/docs/measuring-performance/
+
 ## Step X - Update Readme
-
-======
-
-- report web vitals
-
-======
 
 https in dev
 
 https://create-react-app.dev/docs/using-https-in-development
-
-======
-
-CSS Variables and discuss themes
 
 ======
 
@@ -147,12 +135,8 @@ https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
 
 ======
 
-Typescript and PropTypes serve different purposes. Typescript validates types at compile time, whereas PropTypes are checked at runtime.
+check that all sample readme links still work.
 
-Typescript is useful when you are writing code: it will warn you if you pass an argument of the wrong type to your React components, give you autocomplete for function calls, etc.
+Search all documentation for `TODO:`. Double check that all of it makes sense
 
-PropTypes are useful when you test how the components interact with external data, for example when you load JSON from an API. PropTypes will help you debug (when in React's Development mode) why your component is failing by printing helpful messages like:
-
-```txt
-Warning: Failed prop type: Invalid prop `id` of type `number` supplied to `Table`, expected `string`
-```
+Look through bookmarks for anything else to add/document
