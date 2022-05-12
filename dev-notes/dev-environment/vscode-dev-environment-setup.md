@@ -69,8 +69,10 @@ Save the file and restart your mac. The home and end keys should now work as exp
   "files.eol": "\n",
   "html.autoCreateQuotes": false,
   "diffEditor.renderSideBySide": true,
+  "diffEditor.ignoreTrimWhitespace": false,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "terminal.integrated.fontFamily": "MesloLGS NF",
+  "git.autofetch": true,
   "gitlens.gitCommands.closeOnFocusOut": true,
   "gitlens.gitCommands.skipConfirmations": ["fetch:command", "switch:command"],
   "gitlens.menus": {
@@ -357,4 +359,4 @@ The `Remote - WSL` extension for vscode that allows VS Code’s UI to run on Win
 
 ### Step 5 - Install Node Version Manager
 
-Follow the guide at https://github.com/nvm-sh/nvm
+Follow the guide at [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)

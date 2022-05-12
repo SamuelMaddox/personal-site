@@ -1,35 +1,51 @@
 # Create React App Sample Readme <!-- omit in toc -->
 
 - [Getting Started](#getting-started)
+  - [Step 0 - Prerequisite](#step-0---prerequisite)
   - [Step 1 - Clone Repository](#step-1---clone-repository)
-  - [Step 2 - Install NPM Packages](#step-2---install-npm-packages)
+  - [Step 2 - Install Dependencies](#step-2---install-dependencies)
   - [Step 3 - Start Local Server](#step-3---start-local-server)
-  - [Step 4 - Open Application](#step-4---open-application)
+  - [Step 4 - Open The Application](#step-4---open-the-application)
   - [Step 5 - Read the Documentation](#step-5---read-the-documentation)
 - [Scripts](#scripts)
-- [Testing](#testing)
+- [Code Management](#code-management)
+  - [Branch Naming Convention](#branch-naming-convention)
+  - [Pull Request Checklist](#pull-request-checklist)
 - [CI/CD Pipeline](#cicd-pipeline)
+- [Debugging from VS Code](#debugging-from-vs-code)
+- [Testing](#testing)
 - [Pre-commit Hooks](#pre-commit-hooks)
   - [About Pre-commit Hooks](#about-pre-commit-hooks)
   - [Bypassing Pre-commit Hooks](#bypassing-pre-commit-hooks)
 - [ESLint and Prettier](#eslint-and-prettier)
   - [What is ESLint](#what-is-eslint)
-  - [ESLint Disable](#eslint-disable)
+  - [ESLint Disable Conventions](#eslint-disable-conventions)
   - [What Is Prettier](#what-is-prettier)
   - [Prettier Ignore Node](#prettier-ignore-node)
 - [Story Book](#story-book)
 - [Styled Components](#styled-components)
 - [React Router](#react-router)
+- [Helmet](#helmet)
 - [Theme Config](#theme-config)
 - [File Structure](#file-structure)
 - [Recommended VS Code Extensions](#recommended-vs-code-extensions)
 - [React TypeScript Cheat Sheet](#react-typescript-cheat-sheet)
 - [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
 - [Font Styling & REM Reference Table](#font-styling--rem-reference-table)
+- [SCRUM Notes](#scrum-notes)
+  - [Agile Manifesto](#agile-manifesto)
+  - [Story Statuses](#story-statuses)
+  - [Definition of Ready](#definition-of-ready)
+  - [Definition of Done](#definition-of-done)
 
 ## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Step 0 - Prerequisite
+
+- Install git using [these instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+- Install Node 16+ using [Node Version Manager](https://github.com/nvm-sh/nvm)(Mac/Linux) or the [Node Windows Installer](https://nodejs.org/en/)(Windows 10/11)
 
 ### Step 1 - Clone Repository
 
@@ -39,9 +55,11 @@ Run the following command:
 git clone <Repository Link>
 ```
 
-### Step 2 - Install NPM Packages
+### Step 2 - Install Dependencies
 
 ```terminal
+npm install -g yarn
+yarn set version berry
 yarn install
 ```
 
@@ -51,13 +69,13 @@ yarn install
 yarn start
 ```
 
-### Step 4 - Open Application
+### Step 4 - Open The Application
 
 Open your web browser and go to [http://localhost:3000](http://localhost:3000) to view the app.
 
 ### Step 5 - Read the Documentation
 
-Be sure to read through the rest of this readme to understand all the tooling used to help aid in this apps development.
+Be sure to read through the rest of this readme to understand all the tooling used to help developers build this application.
 
 ## Scripts
 
@@ -91,15 +109,54 @@ Be sure to read through the rest of this readme to understand all the tooling us
 
 **`yarn build-storybook`** - Build Storybook as a static web application.
 
+## Code Management
+
+### Branch Naming Convention
+
+Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
+
+- `main`
+- `hotfix-{version with patch number increased}`
+- `release-{version with max or minor number increased}`
+- `develop`
+- `feature-{id}-{name}`
+- `story-{id}-{name}`
+- `task-{id}-{name}`
+
+### Pull Request Checklist
+
+- [ ] Files follow the defined [File Structure](#file-structure).
+- [ ] New ESLint Disable comments follow the [ESLint Disable Conventions](#eslint-disable-conventions).
+- [ ] CSS styles are using values from the MUI Theme Config where possible (TODO: link to the MUI theme notes)
+- [ ] There is no commented out or unnecessary code.
+- [ ] Names are semantic and meaningful.
+- [ ] Code is clear and easy to understand.
+- [ ] Code Follows the DRY (Don't Repeat Yourself) principle.
+- [ ] Code follows SOLID principles:
+  - [ ] **Single Responsibility Principle** - Every Component/Objects/Function should have only one responsibility
+  - [ ] **Open Closed Principle** - Components/Objects/Functions should be open for extension, but closed for modification
+  - [ ] **Liskov Substitution Principle** - Every subclass or derived class should be substitutable for their base or parent class.
+  - [ ] **Interface Segregation Principle** - A client should never be forced to implement an interface that it doesn’t use.
+  - [ ] **Dependency Inversion Principle** - High-level module must not depend on the low-level module, but they should depend on abstractions.
+- [ ] Browser console is not displaying errors, warnings, or unnecessary console logs.
+- [ ] Linters are throwing no errors or warnings.
+- [ ] Prettier has been ran.
+- [ ] Test coverage is above 80%.
+- [ ] Peer reviewed by at least 2 other developers
+
+## CI/CD Pipeline
+
+TODO: See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+## Debugging from VS Code
+
+TODO: Debugging from VS Code
+
 ## Testing
 
 TODO: (Talk about seeing test coverage in browser and console)
 
 TODO: How to use the vscode debugger.
-
-## CI/CD Pipeline
-
-TODO: See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ## Pre-commit Hooks
 
@@ -121,7 +178,7 @@ you can bypass `pre-commit` hooks using the `--no-verify` option. Example:
 
 TODO: What is ESLint
 
-### ESLint Disable
+### ESLint Disable Conventions
 
 Please follow these 2 conventions When disabling a line or block of code:
 
@@ -197,6 +254,10 @@ TODO: Style Components
 
 TODO: React Router
 
+## Helmet
+
+TODO: Helmet
+
 ## Theme Config
 
 TODO: Theme Config
@@ -254,3 +315,35 @@ REM Size can be calculated using the following equation: `Rem Size = (Desired Fo
 | 2.75rem  | 44px       | 33pt       |
 | 2.875rem | 46px       | 35pt       |
 | 3.0rem   | 48px       | 36pt       |
+
+## SCRUM Notes
+
+### Agile Manifesto
+
+**INDIVIDUALS AND INTERACTIONS** --- over processes and tools\
+**WORKING SOFTWARE** --- over comprehensive documentation\
+**CUSTOMER COLLABORATION** --- over contract negotiation\
+**RESPONDING TO CHANGE** --- over following a plan
+
+That is, while there is value in the items on the right, we value the items on the left more.
+
+### Story Statuses
+
+- New -> Refine -> Estimate -> Hold (For Dependencies) -> Ready -> Active -> In QA -> Demo -> Done
+
+### Definition of Ready
+
+- Includes a clear statement of the business value.
+- There are no outstanding questions or decisions required by the business.
+- Dependencies have been identified
+- Has acceptance criteria defined.
+- Has an estimate.
+
+### Definition of Done
+
+- Story meets all acceptance criteria.
+- Code meets all criteria defined in the [Pull Request Checklist](#pull-request-checklist).
+- Code has been peer reviewed by at least 2 other developers.
+- Code has been deployed to QA.
+- Code has been tested and signed off by QA.
+- Story has been demoed to and signed off by the Product Owner (if it is a non technical story).

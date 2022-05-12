@@ -1,4 +1,4 @@
-# Step 5 - ESLint, Prettier, & Stylelint <!-- omit in toc -->
+# Step 4 - ESLint, Prettier, & Stylelint <!-- omit in toc -->
 
 - [Step 5-1 - Remove Default Config](#step-5-1---remove-default-config)
 - [Step 5-2 - Install ESLint Packages](#step-5-2---install-eslint-packages)

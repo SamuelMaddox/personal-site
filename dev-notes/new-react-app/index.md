@@ -1,6 +1,7 @@
 # Setup New React App <!-- omit in toc -->
 
 - [Testing](#testing)
+- [Step X - Material UI](#step-x---material-ui)
 - [Step X - CSS Reset & Add Theme](#step-x---css-reset--add-theme)
 - [Step X - Update manifest.json & Meta tags & Title tag](#step-x---update-manifestjson--meta-tags--title-tag)
 - [Step X - Storybook](#step-x---storybook)
@@ -18,17 +19,27 @@ testing.
 
 how to use react testing library. create example tests
 
-how to test pages using helmet to seat headers?
+how to test pages using helmet to set headers?
 
 add mock service worker (msw) to mock APIs
-
-test coverage reporting = yarn test -- --coverage (is there a better way to show this? should this be a script in package json and added to setup documentation? I think this creates a coverage directory in the project that is ignored by git, that contains html file to view coverage. I did add a script for coverage in package.json all this needs covered in project readme)
-
-https://create-react-app.dev/docs/running-tests#coverage-reporting
 
 look at testing in storybook https://storybook.js.org/docs/react/writing-tests/interaction-testing
 
 import stories in jest testing: https://storybook.js.org/addons/@storybook/testing-react
+
+## Step X - Material UI
+
+Review How To Guides: https://mui.com/material-ui/guides/api/
+
+This will probably replace CSS Reset and Theme
+
+Notes on how to install Material UI: https://mui.com/material-ui/getting-started/installation/. Also look at the Globals subsection under Usage https://mui.com/material-ui/getting-started/usage/
+
+I will need to look into MUI Icons. There are 3 options. Probably include notes on how to use in sample readme: https://mui.com/material-ui/icons/
+
+Include Notes on how to change/add themes
+
+How to set MUI Link component globaly to work with react router and next.js routing: https://mui.com/material-ui/guides/routing/
 
 ## Step X - CSS Reset & Add Theme
 
@@ -78,6 +89,10 @@ Maybe Look Into Sonar Cube?
 
 Look into adding Visual Tests to storybooking https://storybook.js.org/docs/react/writing-tests/visual-testing.
 
+Learn to Setup Sonar Qube
+
+(Combine sonar and eslint) https://docs.sonarqube.org/latest/analysis/languages/javascript/
+
 ## Step X - Update Readme
 
 ======
@@ -116,17 +131,7 @@ https://create-react-app.dev/docs/adding-images-fonts-and-files
 
 ======
 
-code splitting
-
-https://create-react-app.dev/docs/code-splitting
-
-======
-
-include in readme recomended vscode extensions, such as eslint, prettier, vscode-styled-components, markdown all in one, markdown lint, stylelint, todo highlight, git graph
-
-======
-
-How to add colors to pallet (add it to the pallet, then edit them setter, then in css file initialize css variable with a gray scale value)
+How to add colors to pallet (add it to the pallet, then edit theme setter, then in css file initialize css variable with a gray scale value)
 
 ======
 
