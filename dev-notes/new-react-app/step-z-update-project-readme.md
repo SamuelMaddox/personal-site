@@ -178,7 +178,7 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 | | | | 📄FirstUtil.ts
 | | 📄FirstComponent.test.tsx
 | | 📄FirstComponent.tsx
-| | 📄FirstComponent.styled.ts
+| | 📄FirstComponent.styles.ts
 | | 📄index.ts
 | | 📄Types.ts
 ================================================================================
@@ -215,7 +215,7 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 | | 📁MainLayout
 | | | 📄MainLayout.test.tsx
 | | | 📄MainLayout.tsx
-| | | 📄MainLayout.styled.ts
+| | | 📄MainLayout.styles.ts
 | | | 📄index.ts
 | | | 📄Types.ts
 ================================================================================
@@ -230,7 +230,7 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 | | | | | 📄FirstUtil.ts
 | | | | 📄MainHeader.test.tsx
 | | | | 📄MainHeader.tsx
-| | | | 📄MainHeader.styled.ts
+| | | | 📄MainHeader.styles.ts
 | | | | 📄index.ts
 | | | | 📄Types.ts
 ================================================================================
@@ -241,7 +241,7 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 | | | | | 📄pic.png
 | | | | 📄HomePage.test.tsx
 | | | | 📄HomePage.tsx
-| | | | 📄HomePage.styled.ts
+| | | | 📄HomePage.styles.ts
 | | | | 📄index.ts
 | | | | 📄Types.ts
 ================================================================================
@@ -287,7 +287,7 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 
 - The top level`Modules` are really big (epic or feature level) components made up of smaller components. `Modules` can have other `Modules` and `Components` as children. The hope is that individual `Modules` should not be aware of other sibling `Modules`. This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they would handle the communication across sibling `Modules`.
 
-- Types should be defined in the `/src/Types` directory. Exception, Styled Component Types can be saved in the same file as the styles are.
+- Types should be defined in the `/src/Types` directory. Exception, Emotion Styled Component Types can be saved in the same file as the styles are.
 
 ## Testing
 

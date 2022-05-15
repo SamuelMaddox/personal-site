@@ -19,6 +19,11 @@ This will probably replace CSS Reset and Theme
 
 Notes on how to install Material UI: https://mui.com/material-ui/getting-started/installation/. Also look at the Globals subsection under Usage https://mui.com/material-ui/getting-started/usage/
 
+are these necissary with typescript?:
+
+- https://emotion.sh/docs/typescript
+- https://mui.com/material-ui/guides/typescript/
+
 I will need to look into MUI Icons. There are 3 options. Probably include notes on how to use in sample readme: https://mui.com/material-ui/icons/
 
 Include Notes on how to change/add themes, including adding custom fonts
@@ -32,6 +37,8 @@ is there an emotion vscode extension similiar to styled components? all that doc
 ## Step X - CSS Reset & Add Theme
 
 dark/light mode 3 options, (browser setting | light | dark)
+
+what is the `<meta name="theme-color" content="#000000" />` meta tag found in `/public/index.html`? does MUI use this? I think this came with create react app. See also `"theme_color": "#000000",` in `/public/manifest.json`
 
 ## Step X - Storybook
 
