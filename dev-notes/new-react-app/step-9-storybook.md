@@ -1,4 +1,4 @@
-# Step 10 - Storybook <!-- omit in toc -->
+# Step 9 - Storybook <!-- omit in toc -->
 
 - [Step 10-1 - Install Storybook](#step-10-1---install-storybook)
 - [Step 10-2 - Install Storybook ESLint Plugin](#step-10-2---install-storybook-eslint-plugin)

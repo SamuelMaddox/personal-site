@@ -1,5 +1,9 @@
 # Step 8 - File Structure and Naming Conventions <!-- omit in toc -->
 
+⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ \
+TODO: Section 8-1 and 8-2 may not be needed anymore since they are included in the sample readme.\
+⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+
 - [Step 8-1 - Understanding Project File Structure](#step-8-1---understanding-project-file-structure)
 - [Step 8-2 - File Structure and Naming Conventions Notes](#step-8-2---file-structure-and-naming-conventions-notes)
 - [Step 8-3 - Add Skeleton Code](#step-8-3---add-skeleton-code)

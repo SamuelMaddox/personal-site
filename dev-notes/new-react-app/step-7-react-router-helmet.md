@@ -7,14 +7,16 @@
 
 React Router is a collection of navigational components that compose declaratively with your application. To install react router run the following command:
 
+If using TypeScript:
+
 ```shell
 yarn add react-router-dom @types/react-router-dom
 ```
 
-Projects using Typescript should also run this command
+If NOT using TypeScript:
 
 ```shell
-yarn add @types/react-router-dom
+yarn add react-router-dom
 ```
 
 ## Step 7-2 - Install React Helmet Async
@@ -25,4 +27,16 @@ To install react helmet async run the following command:
 
 ```shell
 yarn add react-helmet-async
+```
+
+Then open `./src/App.tsx` and wrap your app with the `<HelmetProvider>` Component
+
+```javascript
+import { HelmetProvider } from "react-helmet-async";
+
+export function App() {
+  return (
+    <HelmetProvider>{/* Your Application Component Here */}</HelmetProvider>
+  );
+}
 ```

@@ -7,7 +7,7 @@
 
 There are some VS Code settings related to code formatting that can be shared at a repository level with fellow developers.
 
-`.vscode` folder at the project root and add a
+Create a `.vscode` folder at the project root and add a `settings.json` file and add the following:
 
 ```json
 {

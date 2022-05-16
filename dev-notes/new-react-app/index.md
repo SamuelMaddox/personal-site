@@ -4,6 +4,7 @@
 - [Step X - CSS Reset & Add Theme](#step-x---css-reset--add-theme)
 - [Step X - Storybook](#step-x---storybook)
 - [Testing](#testing)
+- [Step X - Build My Own Create React App Tempalte](#step-x---build-my-own-create-react-app-tempalte)
 - [Step X - Update manifest.json & Meta tags & Title tag](#step-x---update-manifestjson--meta-tags--title-tag)
 - [Step X - Implement Auth](#step-x---implement-auth)
 - [Step X - Setup CI Pipeline & GitHub Webhooks](#step-x---setup-ci-pipeline--github-webhooks)
@@ -38,7 +39,7 @@ is there an emotion vscode extension similiar to styled components? all that doc
 
 dark/light mode 3 options, (browser setting | light | dark)
 
-what is the `<meta name="theme-color" content="#000000" />` meta tag found in `/public/index.html`? does MUI use this? I think this came with create react app. See also `"theme_color": "#000000",` in `/public/manifest.json`
+what is the `<meta name="theme-color" content="#000000" />` meta tag found in `/public/index.html`? Create React App added it but does MUI use this?. See also `"theme_color": "#000000",` in `/public/manifest.json`. If these aren't needed then the should be removed as part of step-3-clean-up-code
 
 ## Step X - Storybook
 
@@ -63,6 +64,10 @@ look at testing in storybook https://storybook.js.org/docs/react/writing-tests/i
 import stories in jest testing: https://storybook.js.org/addons/@storybook/testing-react
 
 Look into adding Visual Tests to storybooking https://storybook.js.org/docs/react/writing-tests/visual-testing.
+
+## Step X - Build My Own Create React App Tempalte
+
+https://create-react-app.dev/docs/custom-templates/#building-a-template
 
 ## Step X - Update manifest.json & Meta tags & Title tag
 

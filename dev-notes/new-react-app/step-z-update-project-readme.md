@@ -4,10 +4,11 @@
   - [Step 0 - Prerequisite](#step-0---prerequisite)
   - [Step 1 - Clone Repository](#step-1---clone-repository)
   - [Step 2 - Install Dependencies](#step-2---install-dependencies)
-  - [Step 3 - Start Local Server](#step-3---start-local-server)
-  - [Step 4 - Open The Application](#step-4---open-the-application)
-  - [Step 5 - Read the Documentation](#step-5---read-the-documentation)
+  - [Step 3 - Start The Application](#step-3---start-the-application)
+  - [Step 5 - Start Storybook](#step-5---start-storybook)
+  - [Step 6 - Read the Documentation](#step-6---read-the-documentation)
 - [Scripts](#scripts)
+- [CI/CD Pipeline](#cicd-pipeline)
 - [Code Management](#code-management)
   - [Branch Naming Convention](#branch-naming-convention)
   - [Pull Request Checklist](#pull-request-checklist)
@@ -20,25 +21,32 @@
   - [Bypassing Pre-commit Hooks](#bypassing-pre-commit-hooks)
 - [ESLint and Prettier](#eslint-and-prettier)
   - [What is ESLint](#what-is-eslint)
-  - [ESLint & Prettier Disable Conventions](#eslint--prettier-disable-conventions)
-  - [Eslint Ignore Node](#eslint-ignore-node)
+  - [What is Stylelint](#what-is-stylelint)
   - [What Is Prettier](#what-is-prettier)
+  - [Linting & Prettier Disable Conventions](#linting--prettier-disable-conventions)
+  - [Eslint Ignore Node](#eslint-ignore-node)
+  - [Stylelint Ignore Node](#stylelint-ignore-node)
   - [Prettier Ignore Node](#prettier-ignore-node)
 - [Story Book](#story-book)
 - [Material UI](#material-ui)
+  - [Material UI CSS Baseline](#material-ui-css-baseline)
+  - [Material UI Typography](#material-ui-typography)
+  - [Material UI Icons](#material-ui-icons)
   - [Material UI Styles](#material-ui-styles)
   - [Material UI Themes](#material-ui-themes)
-- [Emotion React CSS](#emotion-react-css)
+- [Emotion Styled Components](#emotion-styled-components)
 - [React Router](#react-router)
 - [Helmet](#helmet)
 - [Advance](#advance)
-  - [CI/CD Pipeline](#cicd-pipeline)
   - [React TypeScript Cheat Sheet](#react-typescript-cheat-sheet)
 - [Extra Notes](#extra-notes)
   - [Debugging from VS Code](#debugging-from-vs-code)
   - [Recommended VS Code Extensions](#recommended-vs-code-extensions)
   - [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
   - [Font Styling & REM Reference Table](#font-styling--rem-reference-table)
+- [Notes For Designers](#notes-for-designers)
+  - [Icon Library](#icon-library)
+  - [Configure Theme](#configure-theme)
 - [SCRUM Notes](#scrum-notes)
   - [Agile Manifesto](#agile-manifesto)
   - [Story Statuses](#story-statuses)
@@ -70,17 +78,21 @@ yarn set version berry
 yarn install
 ```
 
-### Step 3 - Start Local Server
+### Step 3 - Start The Application
 
 ```terminal
 yarn start
 ```
 
-### Step 4 - Open The Application
-
 Open your web browser and go to [http://localhost:3000](http://localhost:3000) to view the app.
 
-### Step 5 - Read the Documentation
+### Step 5 - Start Storybook
+
+We use Storybook to help build UI modules & components. See the [Story Book](#story-book) section of this readme for more details.
+
+TODO: How to start storybook
+
+### Step 6 - Read the Documentation
 
 Be sure to read through the rest of this readme to understand all the tooling used to help developers build this application and keep our codebase clean.
 
@@ -116,15 +128,21 @@ Be sure to read through the rest of this readme to understand all the tooling us
 
 **`yarn build-storybook`** - Build Storybook as a static web application.
 
+## CI/CD Pipeline
+
+TODO: See the Create React App documentation about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+TODO: notes on how to publish storybook as a [static web application](https://storybook.js.org/docs/react/sharing/publish-storybook).
+
 ## Code Management
 
 ### Branch Naming Convention
 
 Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
-- `main`
+- `master`
 - `hotfix-{version with patch number increased}`
-- `release-{version with max or minor number increased}`
+- `release-{version with min or max number increased}`
 - `develop`
 - `feature-{id}-{name}`
 - `story-{id}-{name}`
@@ -145,10 +163,10 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
   - [ ] **Interface Segregation Principle** - A client should never be forced to implement an interface that it doesn’t use.
   - [ ] **Dependency Inversion Principle** - High-level module must not depend on the low-level module, but they should depend on abstractions.
 - [ ] Files follow the defined [File Structure](#file-structure).
-- [ ] New ESLint Disable comments follow the [ESLint & Prettier Disable Conventions](#eslint--prettier-disable-conventions)
+- [ ] New Linting Disable comments follow the [Linting & Prettier Disable Conventions](#linting--prettier-disable-conventions)
 - [ ] Modules/Components have [Story Book](#story-book) stories written.
-- [ ] CSS styles are defined using using [Material UI Styles](#material-ui-styles) or [Emotion](#emotion-react-css)
-- [ ] CSS styles are using values from the [Material UI Themes](#material-ui-themes) where possible
+- [ ] CSS styles are defined using using [Material UI Styles](#material-ui-styles) or [Emotion Styled Components](#emotion-styled-components)
+- [ ] CSS styles are using values from the [Material UI Themes](#material-ui-themes) where applicable (palette, typography, shadows, transitions, zindex)
 - [ ] Internal inks are implemented using [React Router](#react-router)
 - [ ] Pages have [Helmet](#helmet) tags set
 - [ ] Tests are written to closely resemble how your web pages are interacted by the users.
@@ -287,7 +305,7 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 
 - The top level`Modules` are really big (epic or feature level) components made up of smaller components. `Modules` can have other `Modules` and `Components` as children. The hope is that individual `Modules` should not be aware of other sibling `Modules`. This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they would handle the communication across sibling `Modules`.
 
-- Types should be defined in the `/src/Types` directory. Exception, Emotion Styled Component Types can be saved in the same file as the styles are.
+- Types should be defined in the `/src/Types` directory. Exception, [Emotion Styled Components](#emotion-styled-components) Types can be saved in the same file as the styles are.
 
 ## Testing
 
@@ -300,6 +318,8 @@ TODO: How to use the vscode debugger.
 ### About Pre-commit Hooks
 
 TODO: What scripts are ran during pre-commit hooks
+
+Committing can seem to hang if using the Git GUI in VS Code. This is because the linter is running in the background before the commit is executed. If you're committing in the terminal you'll see the pre-commit hooks running.
 
 ### Bypassing Pre-commit Hooks
 
@@ -315,7 +335,17 @@ you can bypass `pre-commit` hooks using the `--no-verify` option. Example:
 
 TODO: What is ESLint
 
-### ESLint & Prettier Disable Conventions
+### What is Stylelint
+
+TODO: What is Stylelint
+
+TODO: NOTE: Stylelint is set up to work work with [Emotion Styled Components](#emotion-styled-components) (The CSS in JS library preferred by [Material UI](#material-ui))
+
+### What Is Prettier
+
+Prettier is used to format our code to conform to a consistent style.
+
+### Linting & Prettier Disable Conventions
 
 Please follow these 2 conventions When disabling a line or block of code:
 
@@ -345,9 +375,9 @@ console.log("bar");
 /* eslint-enable no-console */
 ```
 
-### What Is Prettier
+### Stylelint Ignore Node
 
-Prettier is used to format our code to conform to a consistent style.
+TODO: [stylelint ignore](https://stylelint.io/user-guide/ignore-code/)
 
 ### Prettier Ignore Node
 
@@ -385,17 +415,43 @@ TODO: quick notes for how to run/use storybook
 
 ## Material UI
 
-TODO: General MUI notes
+TODO: General MUI notes. What is MUI.
+
+[Material UI Documentation](https://mui.com/material-ui/)
+
+### Material UI CSS Baseline
+
+> ⚠️ IMPORTANT - The most notable change MUI makes is setting `box-sizing: border-box` globally.\
+
+Material UI includes it's own global reset, similar to `normalize.css`. See their [CSS Baseline Approach](https://mui.com/material-ui/react-css-baseline/#color-scheme) documentation for details.
+
+### Material UI Typography
+
+TODO: Call this component out. Show how to use it (and when to explicitly use the values defined in the theme instead)
+
+https://mui.com/material-ui/react-typography/
+
+### Material UI Icons
+
+TODO: This needs reviewed/edited
+
+we prefer the use of svg icons over font icons. This means the `Icon` component probably doesn't work. Please see the [Library of Icons](https://mui.com/material-ui/material-icons/) for a list of icons we have available. To include custom SVG icons see the [SVG Icon](https://mui.com/material-ui/material-icons/) section of the Material UI Documentation
 
 ### Material UI Styles
 
 TODO: Styles Notes
 
+Something about [Emotion Styled Components](#emotion-styled-components) is probably needed here
+
 ### Material UI Themes
 
 TODO: Theme Config
 
-## Emotion React CSS
+something about how to configure theme (pallete/fonts) here. ask to add light/dark mode palletes and bonus points for color blind palletes.
+
+TODO: Explain how to remove the default Roboto font if you want to use a custom font instead
+
+## Emotion Styled Components
 
 [See Emotion Documentation](https://emotion.sh/docs/introduction)
 
@@ -409,12 +465,6 @@ TODO: Theme Config
 
 ## Advance
 
-### CI/CD Pipeline
-
-TODO: See the Create React App documentation about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-TODO: notes on how to publish storybook as a static web application. https://storybook.js.org/docs/react/sharing/publish-storybook
-
 ### React TypeScript Cheat Sheet
 
 Here is a link to the [React TypeScript Cheat Sheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example)
@@ -423,7 +473,7 @@ Here is a link to the [React TypeScript Cheat Sheet](https://react-typescript-ch
 
 ### Debugging from VS Code
 
-TODO: Debugging from VS Code
+TODO: Debugging from VS Code [debugging in the editor](https://create-react-app.dev/docs/setting-up-your-editor/#debugging-in-the-editor)
 
 ### Recommended VS Code Extensions
 
@@ -470,6 +520,18 @@ REM Size can be calculated using the following equation: `Rem Size = (Desired Fo
 | 2.75rem  | 44px       | 33pt       |
 | 2.875rem | 46px       | 35pt       |
 | 3.0rem   | 48px       | 36pt       |
+
+## Notes For Designers
+
+### Icon Library
+
+TODO: add link
+See [Material UI Icons]()
+
+### Configure Theme
+
+TODO: add link
+See [Material UI Theme](). Add at least a light and dark theme color palette, and bonus points for options to help the color blind
 
 ## SCRUM Notes
 
