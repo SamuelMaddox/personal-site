@@ -1,8 +1,8 @@
 import { ReactElement } from "react";
 import { Routes, Route } from "react-router-dom";
 import { homePageConfig, notFoundPage } from "../../Config/Pages";
-import { HomePage } from "../../Pages/Common/HomePage";
-import { NotFoundPage } from "../../Pages/Common/NotFoundPage";
+import { HomePage } from "../../Pages/Core/HomePage";
+import { NotFoundPage } from "../../Pages/Core/NotFoundPage";
 
 export function MainLayout(): ReactElement {
   return (

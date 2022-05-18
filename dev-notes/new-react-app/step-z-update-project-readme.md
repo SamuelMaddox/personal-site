@@ -16,16 +16,17 @@
   - [Sample File Structure](#sample-file-structure)
   - [File Structure Rules & Conventions](#file-structure-rules--conventions)
 - [Testing](#testing)
+  - [React Testing Library](#react-testing-library)
+  - [Run Tests](#run-tests)
+  - [View Test Coverage](#view-test-coverage)
 - [Pre-commit Hooks](#pre-commit-hooks)
   - [About Pre-commit Hooks](#about-pre-commit-hooks)
   - [Bypassing Pre-commit Hooks](#bypassing-pre-commit-hooks)
 - [ESLint and Prettier](#eslint-and-prettier)
   - [What is ESLint](#what-is-eslint)
-  - [What is Stylelint](#what-is-stylelint)
   - [What Is Prettier](#what-is-prettier)
   - [Linting & Prettier Disable Conventions](#linting--prettier-disable-conventions)
   - [Eslint Ignore Node](#eslint-ignore-node)
-  - [Stylelint Ignore Node](#stylelint-ignore-node)
   - [Prettier Ignore Node](#prettier-ignore-node)
 - [Story Book](#story-book)
 - [Material UI](#material-ui)
@@ -38,10 +39,10 @@
 - [React Router](#react-router)
 - [Helmet](#helmet)
 - [Advance](#advance)
-  - [React TypeScript Cheat Sheet](#react-typescript-cheat-sheet)
 - [Extra Notes](#extra-notes)
   - [Debugging from VS Code](#debugging-from-vs-code)
   - [Recommended VS Code Extensions](#recommended-vs-code-extensions)
+  - [React TypeScript Cheat Sheet](#react-typescript-cheat-sheet)
   - [Screen Dimensions Reference Table](#screen-dimensions-reference-table)
   - [Font Styling & REM Reference Table](#font-styling--rem-reference-table)
 - [Notes For Designers](#notes-for-designers)
@@ -102,6 +103,8 @@ Be sure to read through the rest of this readme to understand all the tooling us
 
 **`yarn build`** - Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and the filenames include the hashes.
 
+**`yarn postinstall`** - This script is called by yarn after a `yarn install`. This will setup the cloned repository to use husky pre-commit hooks.
+
 **`yarn test`** - Launches the test runner in the interactive watch mode.
 
 **`yarn test:coverage`** - Launches the test runner in the interactive watch mode and includes test coverage information.
@@ -116,13 +119,9 @@ Be sure to read through the rest of this readme to understand all the tooling us
 
 **`yarn lint:check`** - Run ESLint and exit with an error status if there are any warnings.
 
-**`yarn stylelint`** - Run linter for css styles.
-
 **`yarn prettier`** - Format files to conform to the Prettier Style Guide.
 
 **`yarn prettier:check`** - Check if files conforms to the Prettier Style Guide without making changes. Exits with an error status if files require re-formatting.
-
-**`yarn postinstall`** - This script is called by yarn after a `yarn install`. This will setup the cloned repository to use husky pre-commit hooks.
 
 **`yarn storybook`** - Start Storybook locally. Open [http://localhost:6006](http://localhost:6006) to view it in the browser.
 
@@ -133,6 +132,14 @@ Be sure to read through the rest of this readme to understand all the tooling us
 TODO: See the Create React App documentation about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 TODO: notes on how to publish storybook as a [static web application](https://storybook.js.org/docs/react/sharing/publish-storybook).
+
+TODO: [Continuous integration](https://create-react-app.dev/docs/running-tests/#continuous-integration)
+
+**`yarn test:nowatch`** - Launches the test runner once and exits. Tests will **NOT** rerun when something changes.
+
+**`yarn lint:check`** - Run ESLint and exit with an error status if there are any warnings.
+
+**`yarn prettier:check`** - Format files to conform to the Prettier Style Guide.
 
 ## Code Management
 
@@ -180,112 +187,117 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 ### Sample File Structure
 
 ```txt
-📁src
+📁 src
 ================================================================================
-| 📁API
-| | 📁FirstAPI
-| | | 📄FirstAPI.ts
-| | | 📄index.ts
-| | | 📄Types.ts
+| 📁 API
+| | 📁 FirstAPI
+| | | 📄 FirstAPI.ts
+| | | 📄 index.ts
+| | | 📄 Types.ts
 ================================================================================
-| 📁Components
-| | 📁FirstComponent
-| | | 📁Assets
-| | | | 📄icon.svg
-| | | 📁Utils
-| | | | 📄FirstUtil.ts
-| | 📄FirstComponent.test.tsx
-| | 📄FirstComponent.tsx
-| | 📄FirstComponent.styles.ts
-| | 📄index.ts
-| | 📄Types.ts
+| 📁 Components
+| | 📁 Core
+| | | 📁 FirstComponent
+| | | | 📁 Assets
+| | | | | 📄 icon.svg
+| | | | 📁 Utils
+| | | | | 📄 FirstUtil.ts
+| | | 📄 FirstComponent.test.tsx
+| | | 📄 FirstComponent.tsx
+| | | 📄 FirstComponent.styles.ts
+| | | 📄 index.ts
+| | | 📄 Types.ts
 ================================================================================
-| 📁Config
-| | 📁FirstCategoryConfig
-| | | 📄OneFirstCategoryConfig.ts
-| | | 📄TwoFirstCategoryConfig.ts
-| | | 📄index.ts
-| | | 📄Types.ts
+| 📁 Config
+| | 📁 FirstCategoryConfig
+| | | 📄 OneFirstCategoryConfig.ts
+| | | 📄 TwoFirstCategoryConfig.ts
+| | | 📄 index.ts
+| | | 📄 Types.ts
 ================================================================================
-| 📁Contexts
-| | 📁FirstContext
-| | | 📄firstContext.ts
-| | | 📄index.ts
-| | | 📄Types.ts
+| 📁 Contexts
+| | 📁 FirstContext
+| | | 📄 firstContext.ts
+| | | 📄 index.ts
+| | | 📄 Types.ts
 ================================================================================
-| 📁Font
-| | 📁FontName
-| | | 📄FontNameRegular.ttf
-| | | 📄FontNameItalic.ttf
-| | | 📄FontNameBold.ttf
-| | | 📄FontNameBoldItalic.ttf
-| | 📄FontName.css
+| 📁 Font
+| | 📁 FontName
+| | | 📄 FontNameRegular.ttf
+| | | 📄 FontNameItalic.ttf
+| | | 📄 FontNameBold.ttf
+| | | 📄 FontNameBoldItalic.ttf
+| | 📄 FontName.css
 ================================================================================
-| 📁Hooks
-| | 📁FirstHook
-| | | 📁Utils
-| | | | 📄FirstUtil.ts
-| | | 📄FirstHook.ts
-| | | 📄index.ts
-| | | 📄Types.ts
+| 📁 Hooks
+| | 📁 FirstHook
+| | | 📁 Utils
+| | | | 📄 FirstUtil.ts
+| | | 📄 FirstHook.ts
+| | | 📄 index.ts
+| | | 📄 Types.ts
 ================================================================================
-| 📁Layouts
-| | 📁MainLayout
-| | | 📄MainLayout.test.tsx
-| | | 📄MainLayout.tsx
-| | | 📄MainLayout.styles.ts
-| | | 📄index.ts
-| | | 📄Types.ts
+| 📁 Layouts
+| | 📁 MainLayout
+| | | 📄 MainLayout.test.tsx
+| | | 📄 MainLayout.tsx
+| | | 📄 MainLayout.styles.ts
+| | | 📄 index.ts
+| | | 📄 Types.ts
 ================================================================================
-| 📁Modules
-| | 📁Layout
-| | | 📁MainHeader
-| | | | 📁Assets
-| | | | | 📄pic.png
-| | | | 📁Components
+| 📁 Modules
+| | 📁 Layout
+| | | 📁 MainHeader
+| | | | 📁 Assets
+| | | | | 📄 pic.png
+| | | | 📁 Components
 | | | | | ...
-| | | | 📁Utils
-| | | | | 📄FirstUtil.ts
-| | | | 📄MainHeader.test.tsx
-| | | | 📄MainHeader.tsx
-| | | | 📄MainHeader.styles.ts
-| | | | 📄index.ts
-| | | | 📄Types.ts
+| | | | 📁 Utils
+| | | | | 📄 FirstUtil.ts
+| | | | 📄 MainHeader.test.tsx
+| | | | 📄 MainHeader.tsx
+| | | | 📄 MainHeader.styles.ts
+| | | | 📄 index.ts
+| | | | 📄 Types.ts
 ================================================================================
-| 📁Pages
-| | 📁Common
-| | | 📁HomePage
-| | | | 📁Assets
-| | | | | 📄pic.png
-| | | | 📄HomePage.test.tsx
-| | | | 📄HomePage.tsx
-| | | | 📄HomePage.styles.ts
-| | | | 📄index.ts
-| | | | 📄Types.ts
+| 📁 Pages
+| | 📁 Core
+| | | 📁 HomePage
+| | | | 📁 Assets
+| | | | | 📄 pic.png
+| | | | 📄 HomePage.test.tsx
+| | | | 📄 HomePage.tsx
+| | | | 📄 HomePage.styles.ts
+| | | | 📄 index.ts
+| | | | 📄 Types.ts
 ================================================================================
-| 📁SharedAssets
-| | 📁GroupOne
-| | | 📄pic.png
+| 📁 SharedAssets
+| | 📁 GroupOne
+| | | 📄 pic.png
 ================================================================================
-| 📁Types
-| | 📁GroupOne
-| | | 📁Classes
-| | | | 📄FirstClassType.ts
-| | | 📁Enums
-| | | | 📄FirstEnumType.ts
-| | | 📁Interfaces
-| | | | 📄FirstInterfaceType.ts
+| 📁 Types
+| | 📁 GroupOne
+| | | 📁 Classes
+| | | | 📄 FirstClassType.ts
+| | | 📁 Enums
+| | | | 📄 FirstEnumType.ts
+| | | 📁 Interfaces
+| | | | 📄 FirstInterfaceType.ts
 ================================================================================
-| 📁Utils
-| | 📁FirstUtil.ts
-| | | 📄FirstUtil.ts
-| | | 📄index.ts
-| | | 📄Types.ts
-| | 📄TimeConstants.ts
-| 📄App.test.tsx
-| 📄App.tsx
-| 📄index.css
-| 📄index.tsx
+| 📁 Utils
+| | 📁 Core
+| | | 📁 Constants
+| | | | 📄 TimeConstants.ts
+| | | 📁 FirstUtil.ts
+| | | | 📄 FirstUtil.ts
+| | | | 📄 index.ts
+| | | | 📄 Types.ts
+| | 📁 TestUtils
+| | | 📄 RenderPage.tsx
+| 📄 App.test.tsx
+| 📄 App.tsx
+| 📄 index.css
+| 📄 index.tsx
 ```
 
 ### File Structure Rules & Conventions
@@ -305,21 +317,52 @@ Branching follows the [gitflow workflow](https://www.atlassian.com/git/tutorials
 
 - The top level`Modules` are really big (epic or feature level) components made up of smaller components. `Modules` can have other `Modules` and `Components` as children. The hope is that individual `Modules` should not be aware of other sibling `Modules`. This is why `API`, `Contexts`, and `Hooks` are not sub folders of individual modules. It's possible that `API`, `Contexts`, and `Hooks` might need to be shared across modules, and this is how they would handle the communication across sibling `Modules`.
 
-- Types should be defined in the `/src/Types` directory. Exception, [Emotion Styled Components](#emotion-styled-components) Types can be saved in the same file as the styles are.
+- Types should be defined in the `/src/Types` directory with the following exceptions:
+
+  - [Emotion Styled Components](#emotion-styled-components) Types can be saved in the same file as the styles are.
+  - Types used exclusively for `./Utils/TestUtils` can be defined in the same file as the utility function.
 
 ## Testing
 
-TODO: (Talk about seeing test coverage in browser and console)
+### React Testing Library
 
-TODO: How to use the vscode debugger.
+[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/#the-problem)
+
+### Run Tests
+
+By default, Jest will only run the tests related to files changed since the last commit. To run tests use the following command:
+
+```terminal
+yarn test
+```
+
+To display individual test results with the test suite hierarchy run this command:
+
+```terminal
+yarn test:verbose
+```
+
+### View Test Coverage
+
+> NOTE: Tests run much slower with coverage so it is recommended to run it separately from your normal workflow.
+
+To create or update a test coverage report run the following command:
+
+```terminal
+yarn test:coverage
+```
+
+This will display coverage in the terminal. It will also create a coverage report at `./coverage/lcov-report/index.html`. This can be opened in the browser. Note that coverage reports are ignored by `git`
 
 ## Pre-commit Hooks
 
 ### About Pre-commit Hooks
 
-TODO: What scripts are ran during pre-commit hooks
+> ⚠️ IMPORTANT - Committing can seem to take a while if using the Git GUI in VS Code. This is because the linting and testing is running in the background before the commit is executed. If you're committing in the terminal you'll see the pre-commit hooks running.
 
-Committing can seem to hang if using the Git GUI in VS Code. This is because the linter is running in the background before the commit is executed. If you're committing in the terminal you'll see the pre-commit hooks running.
+We use [Husky](https://typicode.github.io/husky/#/?id=features) and [Lint Staged](https://www.npmjs.com/package/lint-staged?activeTab=readme) to run linters, prettier, and tests before code can be committed locally. This helps us keep our codebase clean and functioning; and it helps you to know sooner if your code does not meet the linting, code formatting, or testing standards.
+
+To see what scripts are ran before code is commited you can look in the `./.husky/pre-commit` file. Note that one of the commands that are ran is `yarn lint-staged`. This is defined in the `package.json` in it's own section called `lint-staged`.
 
 ### Bypassing Pre-commit Hooks
 
@@ -333,13 +376,19 @@ you can bypass `pre-commit` hooks using the `--no-verify` option. Example:
 
 ### What is ESLint
 
-TODO: What is ESLint
+[ESLint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
-### What is Stylelint
+Use the following command to run ESLint:
 
-TODO: What is Stylelint
+```terminal
+yarn lint
+```
 
-TODO: NOTE: Stylelint is set up to work work with [Emotion Styled Components](#emotion-styled-components) (The CSS in JS library preferred by [Material UI](#material-ui))
+Some parts of the code can be automatically fix. To automatically fix some ESLint errors run the following command:
+
+```terminal
+yarn lint:fix
+```
 
 ### What Is Prettier
 
@@ -374,10 +423,6 @@ console.log("bar");
 
 /* eslint-enable no-console */
 ```
-
-### Stylelint Ignore Node
-
-TODO: [stylelint ignore](https://stylelint.io/user-guide/ignore-code/)
 
 ### Prettier Ignore Node
 
@@ -421,7 +466,7 @@ TODO: General MUI notes. What is MUI.
 
 ### Material UI CSS Baseline
 
-> ⚠️ IMPORTANT - The most notable change MUI makes is setting `box-sizing: border-box` globally.\
+> ⚠️ IMPORTANT - The most notable change MUI makes is setting `box-sizing: border-box` globally.
 
 Material UI includes it's own global reset, similar to `normalize.css`. See their [CSS Baseline Approach](https://mui.com/material-ui/react-css-baseline/#color-scheme) documentation for details.
 
@@ -465,9 +510,15 @@ TODO: Explain how to remove the default Roboto font if you want to use a custom 
 
 ## Advance
 
-### React TypeScript Cheat Sheet
+TODO: Talk about this stuff
 
-Here is a link to the [React TypeScript Cheat Sheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example)
+[environment](https://create-react-app.dev/docs/adding-custom-environment-variables/)
+
+[web vitals](https://create-react-app.dev/docs/measuring-performance)
+
+[proxy](https://create-react-app.dev/docs/proxying-api-requests-in-development)
+
+and maybe more stuff from the create react app docs
 
 ## Extra Notes
 
@@ -478,6 +529,12 @@ TODO: Debugging from VS Code [debugging in the editor](https://create-react-app.
 ### Recommended VS Code Extensions
 
 TODO: VS Code Extensions
+
+TODO: Note that the styled components extension seems to work for emotion styled components as well.
+
+### React TypeScript Cheat Sheet
+
+Here is a link to the [React TypeScript Cheat Sheet](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example)
 
 ### Screen Dimensions Reference Table
 
@@ -553,6 +610,7 @@ That is, while there is value in the items on the right, we value the items on t
 - Includes a clear statement of the business value.
 - There are no outstanding questions or decisions required by the business.
 - Dependencies have been identified
+- We can reasonably expect to complete the story and it's outstanding dependencies within the sprint
 - Has acceptance criteria defined.
 - Has an estimate.
 

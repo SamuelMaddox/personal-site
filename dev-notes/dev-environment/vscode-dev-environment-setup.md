@@ -194,9 +194,8 @@ Save the file and restart your mac. The home and end keys should now work as exp
 - open in browser
 - Prettier
 - Remote - WSL
-- Stylelint
 - TODO Highlight
-- vscode-styled-components (Look for the official blue badge by the author Stylelint)
+- vscode-styled-components (Look for the official blue badge by the author Styled Components)
 - YAML
 
 ## Setup Terminal

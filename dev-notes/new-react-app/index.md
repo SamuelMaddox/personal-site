@@ -12,6 +12,10 @@
 
 ============================
 
+⚠️⚠️⚠️IMPORTANT, Code Splitting only works with default exports, not named exports. This may require a change to linting. https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
+
+Create Time Constants File
+
 ## Step X - Material UI
 
 Review How To Guides: https://mui.com/material-ui/guides/api/
@@ -135,7 +139,7 @@ How to add colors to pallet (add it to the pallet, then edit theme setter, then 
 
 ======
 
-add notes about lint scripts, prettier scripts, stylelint, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger). also note how to bypass pre commit hooks
+add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger). also note how to bypass pre commit hooks
 
 ======
 

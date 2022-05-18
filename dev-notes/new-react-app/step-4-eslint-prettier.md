@@ -1,15 +1,14 @@
-# Step 4 - ESLint, Prettier, & Stylelint <!-- omit in toc -->
+# Step 4 - ESLint & Prettier <!-- omit in toc -->
 
 - [Step 5-1 - Remove Default Config](#step-5-1---remove-default-config)
 - [Step 5-2 - Install ESLint Packages](#step-5-2---install-eslint-packages)
 - [Step 5-3 - Install Prettier Packages](#step-5-3---install-prettier-packages)
 - [Step 5-4 - Configure ESLint](#step-5-4---configure-eslint)
 - [Step 5-5 - Add `.prettierignore`](#step-5-5---add-prettierignore)
-- [Step 5-6 - Install & Configure Stylelint](#step-5-6---install--configure-stylelint)
-- [Step 5-7 - Add Linting, Prettier, and Stylelint Scripts](#step-5-7---add-linting-prettier-and-stylelint-scripts)
-- [Step 5-8 - Test Linting](#step-5-8---test-linting)
-- [Step 5-9 - Fix "Couldn't find config **\_\_**" bug](#step-5-9---fix-couldnt-find-config-__-bug)
-- [Step 5-10 - Fix linting errors and warnings](#step-5-10---fix-linting-errors-and-warnings)
+- [Step 5-6 - Add Linting & Prettier Scripts](#step-5-6---add-linting--prettier-scripts)
+- [Step 5-7 - Test Linting](#step-5-7---test-linting)
+- [Step 5-8 - Fix "Couldn't find config **\_\_**" bug](#step-5-8---fix-couldnt-find-config-__-bug)
+- [Step 5-9 - Fix linting errors and warnings](#step-5-9---fix-linting-errors-and-warnings)
 
 ## Step 5-1 - Remove Default Config
 
@@ -284,42 +283,25 @@ yarn-debug.log*
 yarn-error.log*
 ```
 
-## Step 5-6 - Install & Configure Stylelint
-
-Run the following command to install stylelint
-
-```shell
-yarn add stylelint stylelint-config-recommended
-```
-
-Then create a `.stylelintrc.json` file and add the following:
-
-```json
-{
-  "extends": "stylelint-config-recommended"
-}
-```
-
-## Step 5-7 - Add Linting, Prettier, and Stylelint Scripts
+## Step 5-6 - Add Linting & Prettier Scripts
 
 Add the following scripts to the `/package.json` under the `"scripts"` section.
 
 ```json
 {
   ...
-   "scripts": {
-     ...
-     "lint": "eslint --ext js,jsx,ts,tsx src",
-     "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src",
-     "lint:check": "eslint --max-warnings 0 --ext js,jsx,ts,tsx src",
-     "stylelint": "stylelint src/**/*.css",
-     "prettier": "prettier --write src",
-     "prettier:check": "prettier --check src"
-   }
+  "scripts": {
+    ...
+    "lint": "eslint --ext js,jsx,ts,tsx src",
+    "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src",
+    "lint:check": "eslint --max-warnings 0 --ext js,jsx,ts,tsx src",
+    "prettier": "prettier --write src",
+    "prettier:check": "prettier --check src"
+  }
 }
 ```
 
-## Step 5-8 - Test Linting
+## Step 5-7 - Test Linting
 
 Temporarily add a `console.log('Hello')` to the `/src/index.tsx` file. Then run `yarn lint`. The following warning should be displayed:
 
@@ -328,9 +310,9 @@ Temporarily add a `console.log('Hello')` to the `/src/index.tsx` file. Then run 
   7:1  warning  Unexpected console statement  no-console
 ```
 
-> NOTE: If you're using VSCode we recommend looking for the ESLint, Prettier, and Stylelint extensions
+> NOTE: If you're using VSCode we recommend looking for the ESLint and Prettier extensions
 
-## Step 5-9 - Fix "Couldn't find config **\_\_**" bug
+## Step 5-8 - Fix "Couldn't find config **\_\_**" bug
 
 You may encounter a `Couldn't find config ____` error after running `yarn lint`. Due to `create-react-app` installing some of the eslint configs for us, it's possible that conflicting or duplicate ESLint config dependencies could have been installed when we were adding our custom configs. To fix this bug, delete the `node_modules` and `yarn.lock`, and then run `yarn install`
 
@@ -341,10 +323,8 @@ yarn install
 
 If this doesn't fix the issue, then `eslint-config-airbnb` or one of it's peer dependencies were probably missed and needs to be installed.
 
-## Step 5-10 - Fix linting errors and warnings
+## Step 5-9 - Fix linting errors and warnings
 
 Run `yarn lint:fix`.
 
 Next run `yarn lint` and fix all eslint errors and warnings.
-
-Finally run `yarn stylelint` and fix all stylelint errors and warnings

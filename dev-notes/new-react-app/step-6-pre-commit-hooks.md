@@ -45,9 +45,6 @@ Add the following configuration to the `package.json` file:
     "src/**/*.{js,jsx,ts,tsx}": [
       "yarn lint:check"
     ],
-    "src/**/*.css": [
-      "stylelint"
-    ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "yarn prettier"
     ]

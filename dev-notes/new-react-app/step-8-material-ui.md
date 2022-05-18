@@ -1,10 +1,12 @@
-# Step 8 - Material UI
+# Step 8 - Material UI <!-- omit in toc -->
 
-TODO: [Stylelint & Emotion](https://medium.com/swlh/keeping-your-css-in-js-clean-with-stylelint-8822c8c1543a)
-
-(add to sample readme)
+- [Step 8-1 - Install Material UI](#step-8-1---install-material-ui)
+- [Step 8-2 - Add Roboto Font](#step-8-2---add-roboto-font)
+- [Step 8-3 - Add MUI's CssBasline](#step-8-3---add-muis-cssbasline)
 
 ## Step 8-1 - Install Material UI
+
+> NOTE: See [Material UI Documentation](https://mui.com/material-ui/getting-started/installation/) For the most up to date installation instructions
 
 To install Material UI run the following command:
 
