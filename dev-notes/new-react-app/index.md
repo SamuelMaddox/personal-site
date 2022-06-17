@@ -14,7 +14,15 @@
 
 ⚠️⚠️⚠️IMPORTANT, Code Splitting only works with default exports, not named exports. This may require a change to linting. https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
 
-Create Time Constants File
+code splitting. react router docs has one way to do it. create react app also has their way to do it using react router
+
+https://reactrouter.com/web/guides/code-splitting
+https://create-react-app.dev/docs/code-splitting/#with-react-router
+https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
+
+============================
+
+TODO: Create Time Constants File
 
 ## Step X - Material UI
 
@@ -54,12 +62,6 @@ look into story book testing section of the documentation
 ## Testing
 
 https://create-react-app.dev/docs/debugging-tests#debugging-tests-in-visual-studio-code
-
-testing.
-
-how to use react testing library. create example tests
-
-how to test pages using helmet to set headers?
 
 add mock service worker (msw) to mock APIs
 
@@ -140,14 +142,6 @@ How to add colors to pallet (add it to the pallet, then edit theme setter, then 
 ======
 
 add notes about lint scripts, prettier scripts, pre commit hooks, ci pipeline including checks for github, react router (https://reactrouter.com/web/guides/quick-start), react helmet (https://github.com/nfl/react-helmet), how to run debugger in vscode (first `yarn start`, then run debugger). also note how to bypass pre commit hooks
-
-======
-
-code splitting. react router docs has one way to do it. create react app also has their way to do it using react router
-
-https://reactrouter.com/web/guides/code-splitting
-https://create-react-app.dev/docs/code-splitting/#with-react-router
-https://reactjs.org/docs/code-splitting.html#route-based-code-splitting
 
 ======
 
