@@ -185,15 +185,14 @@ Save the file and restart your mac. The home and end keys should now work as exp
 - Git Graph
 - GitHub Pull Requests and Issues
 - GitLens
-- Live Server
-- Live Share Extension Pack
+- Live Server (Microsoft)
+- Live Share Extension Pack (Microsoft)
 - Markdown All in One
 - markdownlint
 - Markdown Preview Github Styling
-- npm
 - open in browser
 - Prettier
-- Remote - WSL
+- WSL (Microsoft)
 - TODO Highlight
 - vscode-styled-components (Look for the official blue badge by the author Styled Components)
 - YAML
