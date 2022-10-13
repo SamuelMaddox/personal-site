@@ -200,6 +200,13 @@ If Using TypeScript:
     "react/require-default-props": "off",
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": ["error"]
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "TSEnumDeclaration",
+        "message": "Enums are forbidden. Use string union types instead. Example: type Suit = 'HEARTS' | 'DIAMONDS' | 'SPADES' | 'CLUBS';"
+      }
+    ]
   },
   ...
 }
