@@ -199,7 +199,7 @@ If Using TypeScript:
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"]
+    "@typescript-eslint/no-shadow": ["error"],
     "no-restricted-syntax": [
       "error",
       {
