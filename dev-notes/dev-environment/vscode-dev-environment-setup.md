@@ -181,6 +181,7 @@ Save the file and restart your mac. The home and end keys should now work as exp
 
 - AWS Toolkit
 - Code Spell Checker
+- C#
 - ESLint
 - Git Graph
 - GitHub Pull Requests and Issues
@@ -192,6 +193,7 @@ Save the file and restart your mac. The home and end keys should now work as exp
 - Markdown Preview Github Styling
 - open in browser
 - Prettier
+- Sonarlint
 - WSL (Microsoft)
 - TODO Highlight
 - vscode-styled-components (Look for the official blue badge by the author Styled Components)
