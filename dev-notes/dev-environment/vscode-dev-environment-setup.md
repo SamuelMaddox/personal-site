@@ -186,6 +186,7 @@ Save the file and restart your mac. The home and end keys should now work as exp
 - Git Graph
 - GitHub Pull Requests and Issues
 - GitLens
+- Jest
 - Live Server (Microsoft)
 - Live Share Extension Pack (Microsoft)
 - Markdown All in One
